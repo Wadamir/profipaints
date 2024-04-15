@@ -286,7 +286,7 @@ jQuery(document).ready(function ($) {
      */
     var mobile_max_width = 1140; // Media max width for mobile
     var main_navigation = jQuery(".main-navigation .onepress-menu");
-    var stite_header = $(".site-header");
+    var site_header = $(".site-header");
     var header = document.getElementById("masthead");
     if (header) {
         var noSticky = header.classList.contains("no-sticky");
@@ -447,11 +447,12 @@ jQuery(document).ready(function ($) {
     jQuery('.home #site-navigation li a[href*="#"]').on("click", function (
         event
     ) {
+        // console.log('click!!!');
         event.preventDefault();
         // if in mobile mod
-        if (jQuery(".onepress-menu").hasClass("onepress-menu-mobile")) {
-            jQuery("#nav-toggle").trigger("click");
-        }
+        // if (jQuery(".onepress-menu").hasClass("onepress-menu-mobile")) {
+        jQuery(".menu-btn").trigger("click");
+        // }
         smoothScroll(jQuery(this.hash));
     });
 
@@ -589,13 +590,13 @@ jQuery(document).ready(function ($) {
         if (element.length <= 0) {
             return false;
         }
-        console.log(element + '-' + jQuery(element).offset().top);
+        // console.log(element + '-' + jQuery(element).offset().top);
         jQuery("html, body").animate(
             {
-                scrollTop: jQuery(element).offset().top + "px"
+                scrollTop: jQuery(element).offset().top - 70 + "px"
             },
             {
-                duration: 800,
+                duration: 300,
                 easing: "swing",
                 complete: function () {
                     window.current_nav_item = false;
