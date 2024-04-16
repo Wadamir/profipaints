@@ -74,10 +74,10 @@ ROOT
     --secondary-text-color: #4F5151;
     --secondary-color: #FCFCFC;
     --meta-color: #E6E6E6;
-    --accent-color: #1DAAA3;
-    --accent-secondary-color: #05969A;
-    --accent-transparent-color: rgba(29, 170, 163, 0.85);
-    --accent-transparent2-color: rgba(29, 170, 163, 0.5);
+    --accent-color: rgb(239 99 51);
+    --accent-secondary-color: rgb(192 20 30);
+    --accent-transparent-color: rgba(239, 99, 51, 0.85);
+    --accent-transparent2-color: rgba(239, 99, 51, 0.5);
     --background-transparent-color: rgba(0, 0, 0, 0.65);
     --primary-font: 'Montserrat', sans-serif;
     --secondary-font: 'Montserrat', sans-serif;
