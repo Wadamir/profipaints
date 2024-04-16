@@ -4,7 +4,8 @@ $disable  = get_theme_mod('onepress_features_disable') == 1 ? true : false;
 $title    = get_theme_mod('onepress_features_title', esc_html__('Features', 'onepress'));
 $subtitle = get_theme_mod('onepress_features_subtitle', esc_html__('Why choose Us', 'onepress'));
 $layout = intval(get_theme_mod('onepress_features_layout', 4));
-$layout_col = 12 / $layout;
+// var_dump(get_theme_mod('onepress_features_layout'));
+// $layout_col = 12 / $layout;
 if (onepress_is_selective_refresh()) {
     $disable = false;
 }
@@ -64,7 +65,7 @@ if (!$disable && !empty($data)) {
                             }
                         }
                     ?>
-                        <div class="col-<?php echo $layout_col * 2 ?> col-md-<?php echo $layout_col ?> d-flex align-items-stretch">
+                        <div class="col-6 col-md-6 col-lg-<?php echo $layout ?> d-flex align-items-stretch">
                             <div class="feature-item meta-color h-100" data-bs-toggle="modal" data-bs-target="#feature-item-content-<?php echo $k ?>">
                                 <h3><?php echo esc_html($f['title']); ?></h3>
                                 <div class="feature-media">

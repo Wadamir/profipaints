@@ -208,7 +208,21 @@ function onepress_customizer_partials($wp_customize)
                 'onepress_about2_content_source',
                 'onepress_about2_layout',
             ),
-        ),        
+        ),
+
+        // Section aboutus
+        array(
+            'id' => 'aboutus',
+            'selector' => '.section-aboutus',
+            'settings' => array(
+                'onepress_aboutus_boxes',
+                'onepress_aboutus_title',
+                'onepress_aboutus_subtitle',
+                'onepress_aboutus_desc',
+                'onepress_aboutus_content_source',
+                'onepress_aboutus_layout',
+            ),
+        ),
 
         // Section team
         array(

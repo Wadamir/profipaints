@@ -1131,6 +1131,41 @@ if (!function_exists('onepress_custom_inline_style')) {
         }
     }
 
+    if (!function_exists('onepress_get_section_aboutus_data')) {
+        /**
+         * Get aboutus data
+         *
+         * @return array
+         */
+        function onepress_get_section_aboutus_data()
+        {
+            $boxes = get_theme_mod('onepress_aboutus_boxes');
+            if (is_string($boxes)) {
+                $boxes = json_decode($boxes, true);
+            }
+            $page_ids = array();
+            if (!empty($boxes) && is_array($boxes)) {
+                foreach ($boxes as $k => $v) {
+                    if (isset($v['content_page'])) {
+                        $v['content_page'] = absint($v['content_page']);
+                        if ($v['content_page'] > 0) {
+                            $page_ids[] = wp_parse_args(
+                                $v,
+                                array(
+                                    'enable_link' => 0,
+                                    'hide_title' => 0,
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+            $page_ids = array_filter($page_ids);
+
+            return $page_ids;
+        }
+    }    
+
     if (!function_exists('onepress_get_section_counter_data')) {
         /**
          * Get counter data
@@ -1310,6 +1345,41 @@ if (!function_exists('onepress_custom_inline_style')) {
             return $array;
         }
     }
+    if (!function_exists('onepress_get_aboutus_data')) {
+        /**
+         * Get aboutus data
+         *
+         * @since 1.1.4
+         * @return array
+         */
+        function onepress_get_aboutus_data()
+        {
+            $array = get_theme_mod('onepress_aboutus_boxes');
+            if (is_string($array)) {
+                $array = json_decode($array, true);
+            }
+            if (!empty($array) && is_array($array)) {
+                foreach ($array as $k => $v) {
+                    $array[$k] = wp_parse_args(
+                        $v,
+                        array(
+                            'icon' => 'gg',
+                            'title' => '',
+                            'desc' => '',
+                            'link' => '',
+                        )
+                    );
+
+                    // Get/Set social icons
+                    $array[$k]['icon'] = trim($array[$k]['icon']);
+                    if ($array[$k]['icon'] != '' && strpos($array[$k]['icon'], 'fa') !== 0) {
+                        $array[$k]['icon'] = 'fa-' . $array[$k]['icon'];
+                    }
+                }
+            }
+            return $array;
+        }
+    }    
     if (!function_exists('onepress_get_social_profiles')) {
         /**
          * Get social profiles
