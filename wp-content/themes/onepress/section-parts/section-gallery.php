@@ -13,7 +13,7 @@ $layout = get_theme_mod('onepress_gallery_layout', 'default');
 ?>
 <?php if (!$disable) { ?>
     <?php if (!onepress_is_selective_refresh()) { ?>
-        <section id="<?php echo esc_attr($id); ?>" <?php do_action('onepress_section_atts', 'gallery'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-gallery ' . (($title || $subtitle || $desc) ? 'section-padding' : '') . ' onepage-section', 'gallery')); ?>">
+        <section id="<?php echo esc_attr($id); ?>" <?php do_action('onepress_section_atts', 'gallery'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-gallery section-meta ' . (($title || $subtitle || $desc) ? 'section-padding' : '') . ' onepage-section', 'gallery')); ?>">
         <?php } ?>
         <?php do_action('onepress_section_before_inner', 'gallery'); ?>
 

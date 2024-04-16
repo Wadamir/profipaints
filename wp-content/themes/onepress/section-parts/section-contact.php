@@ -40,7 +40,7 @@ if ($onepress_contact_cf7 || $onepress_contact_text || $onepress_contact_address
         <?php if (!onepress_is_selective_refresh()) { ?>
             <section id="<?php if ($onepress_contact_id != '') {
                                 echo esc_attr($onepress_contact_id);
-                            }; ?>" <?php do_action('onepress_section_atts', 'counter'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-contact section-padding onepage-section section-meta', 'contact')); ?>">
+                            }; ?>" <?php do_action('onepress_section_atts', 'counter'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-contact section-padding onepage-section', 'contact')); ?>">
             <?php } ?>
             <?php do_action('onepress_section_before_inner', 'contact'); ?>
             <div class="<?php echo esc_attr(apply_filters('onepress_section_container_class', 'container', 'contact')); ?>">
