@@ -212,6 +212,21 @@ a.external_link {
     font-weight: 600;
 }
 
+.nav-link {
+    color: var(--primary-text-color, #1B1D21);
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--accent-color, #1DAAA3);
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: var(--accent-color, #1DAAA3);
+    color: var(--secondary-color, #FCFCFC);
+}
+
 /*------------------------------
 	2.3 Heading
 ------------------------------*/
@@ -6398,3 +6413,59 @@ input#active-menu {
 .modal-dialog .modal-content {
     border-radius: 24px;
 }
+
+.modal-dialog .feature-item,
+.modal-dialog .feature-item:hover,
+.modal-dialog .feature-item:focus,
+.modal-dialog .feature-item:active {
+    box-shadow: none;
+}
+
+
+/*
+* List for certificates
+*/
+.push {
+    list-style: none;
+    /* font-family: "Lucida Sans"; */
+}
+
+.push li {
+    position: relative;
+    padding: 3px 0 3px 24px;
+    margin: 0;
+    color: var(--accent-color, #1DAAA3);
+    /* font-variant: small-caps; */
+    /* font-weight: bold; */
+    cursor: pointer;
+}
+
+.push li:before {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-color, #1DAAA3);
+    content: "";
+    left: 0;
+    transition: .3s ease-in-out;
+    top: calc(50% - 3.5px);
+}
+
+/* .push li:after {
+    position: absolute;
+    border-left: 1px dotted var(--accent-color, #1DAAA3);
+    width: 1px;
+    bottom: -12px;
+    content: "";
+    left: 3px;
+    top: 48px;
+} */
+
+.push li:hover:before {
+    box-shadow: 0 0 0 4px var(--accent-transparent2-color)
+}
+
+/* .push li:last-child:after {
+    content: none;
+} */

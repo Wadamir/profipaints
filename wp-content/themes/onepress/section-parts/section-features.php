@@ -35,13 +35,12 @@ if (!$disable && !empty($data)) {
                     foreach ($data as $k => $f) {
                         $media = '';
                         $f =  wp_parse_args($f, array(
-                            'icon_type' => 'icon',
-                            'icon' => 'gg',
-                            'image' => '',
-                            'link' => '',
-                            'title' => '',
-                            'subtitle' => '',
-                            'desc' => '',
+                            'icon_type'     => 'icon',
+                            'icon'          => 'gg',
+                            'image'         => '',
+                            'title'         => '',
+                            'subtitle'      => '',
+                            'desc'          => '',
                         ));
                         if ($f['image']) {
                             $url = onepress_get_media_url($f['image']);

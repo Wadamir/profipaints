@@ -21,11 +21,29 @@ if (!$disable && !empty($data)) {
             'image' => '',
             'image2' => '',
             'image3' => '',
-            'link' => '',
-            'link_text' => '',
             'title' => '',
             'subtitle' => '',
             'desc' => '',
+            'link'          => '',
+            'link__text'    => '',
+            'link2'         => '',
+            'link2__text'   => '',
+            'link3'         => '',
+            'link3__text'   => '',
+            'link4'         => '',
+            'link4__text'   => '',
+            'link5'         => '',
+            'link5__text'   => '',
+            'link6'         => '',
+            'link6__text'   => '',
+            'link7'         => '',
+            'link7__text'   => '',
+            'link8'         => '',
+            'link8__text'   => '',
+            'link9'         => '',
+            'link9__text'   => '',
+            'link10'        => '',
+            'link10__text'  => '',
         ));
         // var_dump($f);
         if ($f['image']) {
@@ -74,21 +92,73 @@ if (!$disable && !empty($data)) {
                             </span>
                         </button>
                     </div>
-                    <div class="feature-item meta-color">
-                        <div class="row">
-                            <div class="feature-media col-12 col-md-4">
-                                <div class="feature-image product-carousel owl-theme owl-carousel owl-hidden">
-                                    <?php echo $media; ?>
-                                    <?php echo ($f['image2']) ? $media2 : ''; ?>
-                                    <?php echo ($f['image3']) ? $media3 : ''; ?>
+                    <div class="modal-body">
+                        <?php
+                        if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
+                        ?>
+                            <nav class="nav nav-pills flex-column flex-sm-row">
+                                <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">Информация о товаре</button>
+                                <button class="nav-link" id="certification-tab" data-bs-toggle="tab" data-bs-target="#certification" type="button" role="tab" aria-controls="certification" aria-selected="false">Сертификаты и документация</button>
+                            </nav>
+                        <?php
+                        }
+                        ?>
+                        <div class="feature-item meta-color">
+                            <div class="row">
+                                <div class="feature-media col-12 col-md-4">
+                                    <div class="feature-image product-carousel owl-theme owl-carousel owl-hidden">
+                                        <?php echo $media; ?>
+                                        <?php echo ($f['image2']) ? $media2 : ''; ?>
+                                        <?php echo ($f['image3']) ? $media3 : ''; ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="feature-inner-content col-12 col-md-8">
-                                <p class="subtitle h5 mb-2"><?php echo esc_html($f['subtitle']); ?></p>
-                                <?php echo apply_filters('the_content', $f['desc']); ?>
-                                <?php if ($f['link'] && $f['link__text']) { ?>
-                                    <a href="<?php echo $f['link'] ?>" class="external_link" target="_blank"><?php echo $f['link__text'] ?></a>
-                                <?php } ?>
+                                <div class="feature-inner-content col-12 col-md-8">
+                                    <?php
+                                    if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
+                                    ?>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+                                            <?php
+                                        }
+                                            ?>
+                                            <p class="subtitle h5 mb-2"><?php echo esc_html($f['subtitle']); ?></p>
+                                            <?php echo apply_filters('the_content', $f['desc']); ?>
+                                            <?php
+                                            if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
+                                            ?>
+                                            </div>
+                                            <div class="tab-pane fade" id="certification" role="tabpanel" aria-labelledby="certification-tab">
+                                                <ul class="push">
+                                                    <?php
+                                                    $counter = 0;
+                                                    for ($i = 0; $i <= 10; $i++) {
+                                                        if ($i == 0) {
+                                                            $link = 'link';
+                                                            $link_text = 'link__text';
+                                                        } else {
+                                                            $link = 'link' . $i;
+                                                            $link_text = 'link' . $i . '__text';
+                                                            if (empty($f[$link]) || empty($f[$link_text])) {
+                                                                continue;
+                                                            }
+                                                        }
+                                                        if (empty($f[$link]) || empty($f[$link_text])) {
+                                                            continue;
+                                                        }
+                                                    ?>
+                                                        <li>
+                                                            <a href=" <?php echo esc_url($f[$link]); ?>" target="_blank"><?php echo esc_html($f[$link_text]); ?></a>
+                                                        </li>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    <?php
+                                            }
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>

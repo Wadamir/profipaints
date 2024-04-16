@@ -211,11 +211,123 @@ $wp_customize->add_control(
                     'title' => esc_html__('Description', 'onepress'),
                     'type'  => 'editor',
                 ),
+                // hr
+                'divider' => array(
+                    'type'    => 'hr'
+                ),
                 'link'  => array(
                     'title' => esc_html__('Ссылка на сертификат', 'onepress'),
                     'type'  => 'text',
                 ),
                 'link__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider2' => array(
+                    'type'    => 'hr'
+                ),
+                'link2'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link2__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider3' => array(
+                    'type'    => 'hr'
+                ),
+                'link3'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link3__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider4' => array(
+                    'type'    => 'hr'
+                ),
+                'link4'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link4__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider5' => array(
+                    'type'    => 'hr'
+                ),
+                'link5'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link5__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider6' => array(
+                    'type'    => 'hr'
+                ),
+                'link6'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link6__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider7' => array(
+                    'type'    => 'hr'
+                ),
+                'link7'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link7__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider8' => array(
+                    'type'    => 'hr'
+                ),
+                'link8'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link8__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider9' => array(
+                    'type'    => 'hr'
+                ),
+                'link9'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link9__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'divider10' => array(
+                    'type'    => 'hr'
+                ),
+                'link10'  => array(
+                    'title' => esc_html__('Ссылка на сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'link10__text'  => array(
                     'title' => esc_html__('Текст ссылки', 'onepress'),
                     'type'  => 'text',
                 ),
