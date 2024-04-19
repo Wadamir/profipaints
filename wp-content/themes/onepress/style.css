@@ -3319,7 +3319,7 @@ section>.customize-partial-edit-shortcut button {
     text-align: left;
     margin-top: 0;
     margin-bottom: 12px;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 600;
     line-height: var(--secondary-line-height, 1.25);
 }
