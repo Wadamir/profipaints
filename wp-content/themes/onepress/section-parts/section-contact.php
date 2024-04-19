@@ -12,9 +12,13 @@ $onepress_contact_text          = get_theme_mod('onepress_contact_text');
 $onepress_contact_address_title = get_theme_mod('onepress_contact_address_title');
 $onepress_contact_address       = get_theme_mod('onepress_contact_address');
 $onepress_contact_phone         = get_theme_mod('onepress_contact_phone');
+$onepress_contact_phone_text    = (get_theme_mod('onepress_contact_phone_text') != '') ? get_theme_mod('onepress_contact_phone_text') : esc_html__('Phone', 'onepress');
 $onepress_contact_email         = get_theme_mod('onepress_contact_email');
+$onepress_contact_email_text    = (get_theme_mod('onepress_contact_email_text') != '') ? get_theme_mod('onepress_contact_email_text') : esc_html__('Email', 'onepress');
 $onepress_contact_whatsapp      = get_theme_mod('onepress_contact_whatsapp');
+$onepress_contact_whatsapp_text = (get_theme_mod('onepress_contact_whatsapp_text') != '') ? get_theme_mod('onepress_contact_whatsapp_text') : esc_html__('WhatsApp', 'onepress');
 $onepress_contact_telegram      = get_theme_mod('onepress_contact_telegram');
+$onepress_contact_telegram_text = (get_theme_mod('onepress_contact_telegram_text') != '') ? get_theme_mod('onepress_contact_telegram_text') : esc_html__('Telegram', 'onepress');
 
 $onepress_contact_yamap         = get_theme_mod('onepress_contact_yamap');
 $onepress_contact_yamap_disable = get_theme_mod('onepress_contact_yamap_disable');
@@ -92,28 +96,28 @@ if ($onepress_contact_cf7 || $onepress_contact_text || $onepress_contact_address
                             <?php if ($onepress_contact_phone != '') : ?>
                                 <a href='tel:<?php echo $onepress_contact_phone; ?>' class="address-contact">
                                     <span class="address-contact-icon"><?php echo $icon_phone; ?></span>
-                                    <span class="address-content"><?php echo wp_kses_post($onepress_contact_phone); ?></span>
+                                    <span class="address-content"><?php echo wp_kses_post($onepress_contact_phone_text); ?></span>
                                 </a>
                             <?php endif; ?>
 
                             <?php if ($onepress_contact_whatsapp != '') : ?>
                                 <a href='https://wa.me/<?php echo $onepress_contact_whatsapp; ?>' class="address-contact">
                                     <span class="address-contact-icon"><?php echo $icon_whatsapp; ?></span>
-                                    <div class="address-content"><?php echo wp_kses_post($onepress_contact_whatsapp); ?></div>
+                                    <div class="address-content"><?php echo wp_kses_post($onepress_contact_whatsapp_text); ?></div>
                                 </a>
                             <?php endif; ?>
 
                             <?php if ($onepress_contact_telegram != '') : ?>
                                 <a href='https://t.me/<?php echo $onepress_contact_telegram; ?>' class="address-contact">
                                     <span class="address-contact-icon icon-telegram"><?php echo $icon_telegram; ?></span>
-                                    <span class="address-content"><?php echo wp_kses_post($onepress_contact_telegram); ?></span>
+                                    <span class="address-content"><?php echo wp_kses_post($onepress_contact_telegram_text); ?></span>
                                 </a>
                             <?php endif; ?>
 
                             <?php if ($onepress_contact_email != '') : ?>
                                 <a href="mailto:<?php echo antispambot($onepress_contact_email); ?>" class="address-contact">
                                     <span class="address-contact-icon icon-email"><?php echo $icon_email; ?></span>
-                                    <span class="address-content"><?php echo antispambot($onepress_contact_email); ?> </span>
+                                    <span class="address-content"><?php echo antispambot($onepress_contact_email_text); ?> </span>
                                 </a>
                             <?php endif; ?>
                         </div>

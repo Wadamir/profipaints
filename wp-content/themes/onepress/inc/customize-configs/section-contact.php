@@ -273,6 +273,24 @@ $wp_customize->add_control(
     )
 );
 
+$wp_customize->add_setting(
+    'onepress_contact_phone_text',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_text',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_contact_phone_text',
+    array(
+        'section'           => 'onepress_contact_content',
+        // 'placeholder'       => 'Text on link',
+        'input_attrs' => array(
+            'placeholder' => __('Текст на ссылке', 'onepress'),
+        )
+    )
+);
+
 // Contact Email
 $wp_customize->add_setting(
     'onepress_contact_email',
@@ -287,6 +305,24 @@ $wp_customize->add_control(
         'label'         => esc_html__('Email', 'onepress'),
         'section'         => 'onepress_contact_content',
         'description'   => '',
+    )
+);
+
+$wp_customize->add_setting(
+    'onepress_contact_email_text',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_text',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_contact_email_text',
+    array(
+        'section'           => 'onepress_contact_content',
+        // 'placeholder'       => 'Text on link',
+        'input_attrs' => array(
+            'placeholder' => __('Текст на ссылке', 'onepress'),
+        )
     )
 );
 
@@ -307,6 +343,24 @@ $wp_customize->add_control(
     )
 );
 
+$wp_customize->add_setting(
+    'onepress_contact_whatsapp_text',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_text',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_contact_whatsapp_text',
+    array(
+        'section'           => 'onepress_contact_content',
+        // 'placeholder'       => 'Text on link',
+        'input_attrs' => array(
+            'placeholder' => __('Текст на ссылке', 'onepress'),
+        )
+    )
+);
+
 // Contact Telegram
 $wp_customize->add_setting(
     'onepress_contact_telegram',
@@ -321,6 +375,24 @@ $wp_customize->add_control(
         'label'         => esc_html__('Telegram', 'onepress'),
         'section'         => 'onepress_contact_content',
         'description'   => '',
+    )
+);
+
+$wp_customize->add_setting(
+    'onepress_contact_telegram_text',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_text',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_contact_telegram_text',
+    array(
+        'section'           => 'onepress_contact_content',
+        // 'placeholder'       => 'Text on link',
+        'input_attrs' => array(
+            'placeholder' => __('Текст на ссылке', 'onepress'),
+        )
     )
 );
 
