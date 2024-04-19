@@ -187,12 +187,12 @@ body::-webkit-scrollbar-thumb {
 ------------------------------*/
 a {
     color: var(--accent-color, #1DAAA3);
-    text-decoration: none;
+    text-decoration: underline dotted;
     outline: none;
 }
 
 a:hover {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--accent-secondary-color, #05969A);
     /* text-decoration: dotted underline; */
 }

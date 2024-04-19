@@ -200,12 +200,16 @@ $wp_customize->add_control(
                     'title' => esc_html__('Фото', 'onepress'),
                     'type'  => 'media',
                 ),
+                'desc'  => array(
+                    'title' => esc_html__('Описание', 'onepress'),
+                    'type'  => 'editor',
+                ),
                 'divider'  => array(
                     // 'title' => esc_html__('Разделитель', 'onepress'),
                     'type'  => 'hr-bold',
                 ),
-                'desc'  => array(
-                    'title' => esc_html__('Текст в pop-up', 'onepress'),
+                'desc_footer'  => array(
+                    'title' => esc_html__('Текст в pop-up окне', 'onepress'),
                     'type'  => 'editor',
                 ),
                 'form'  => array(

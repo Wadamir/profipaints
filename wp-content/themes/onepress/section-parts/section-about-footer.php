@@ -25,6 +25,7 @@ if (!$disable && !empty($data)) {
                 'title' => '',
                 'subtitle' => '',
                 'desc' => '',
+                'desc_footer' => '',
                 'form' => '',
             ));
             if ($f['image']) {
@@ -60,16 +61,13 @@ if (!$disable && !empty($data)) {
                                 <div class="about-content">
                                     <h2 class="d-none"><?php echo esc_html($f['title']); ?></h2>
                                     <p class="subtitle text-italic h4 d-none"><?php echo esc_html($f['subtitle']); ?></p>
-                                    <div class="about-item-content"><?php echo apply_filters('the_content', $f['desc']); ?></div>
+                                    <div class="about-item-content"><?php echo apply_filters('the_content', $f['desc_footer']); ?></div>
                                 </div>
                                 <?php if ($f['form']) { ?>
                                     <div class="form">
                                         <?php echo do_shortcode(wp_kses_post($f['form'])); ?>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="about-media d-none">
-                                <?php echo $media; ?>
                             </div>
                         </div>
                     </div>
