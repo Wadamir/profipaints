@@ -87,7 +87,7 @@ if (!$disable && !empty($data)) {
                                         <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#1B1D21"></path>
                                     </g>
                                     <defs>
-                                        <clipPath id="clip0_1561_14432">
+                                        <clipPath>
                                             <rect width="24" height="24" fill="white"></rect>
                                         </clipPath>
                                     </defs>
@@ -97,13 +97,13 @@ if (!$disable && !empty($data)) {
                     </div>
                     <div class="modal-body">
                         <nav class="nav nav-pills flex-column flex-sm-row<?php echo $show_nav_tabs_class ?>">
-                            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
+                            <button class="nav-link active" id="info-tab-<?php echo $k ?>" data-bs-toggle="tab" data-bs-target="#info-<?php echo $k ?>" type="button" role="tab" aria-controls="info-<?php echo $k ?>" aria-selected="true">
                                 <?php echo $onepress_features_tab1_title; ?>
                             </button>
                             <?php
                             if (($f['link1'] && $f['link1__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
                             ?>
-                                <button class="nav-link" id="certification-tab" data-bs-toggle="tab" data-bs-target="#certification" type="button" role="tab" aria-controls="certification" aria-selected="false">
+                                <button class="nav-link" id="certification-tab-<?php echo $k ?>" data-bs-toggle="tab" data-bs-target="#certification-<?php echo $k ?>" type="button" role="tab" aria-controls="certification-<?php echo $k ?>" aria-selected="false">
                                     <?php echo $onepress_features_tab2_title; ?>
                                 </button>
                             <?php
@@ -112,7 +112,7 @@ if (!$disable && !empty($data)) {
                             <?php
                             if (($f['tech_link1'] && $f['tech_link1__text']) || ($f['tech_link2'] && $f['tech_link2__text']) || ($f['tech_link3'] && $f['tech_link3__text']) || ($f['tech_link4'] && $f['tech_link4__text']) || ($f['tech_link5'] && $f['tech_link5__text']) || ($f['tech_link6'] && $f['tech_link6__text']) || ($f['tech_link7'] && $f['tech_link7__text']) || ($f['tech_link8'] && $f['tech_link8__text']) || ($f['tech_link9'] && $f['tech_link9__text']) || ($f['tech_link10'] && $f['tech_link10__text'])) {
                             ?>
-                                <button class="nav-link" id="tech-tab" data-bs-toggle="tab" data-bs-target="#tech" type="button" role="tab" aria-controls="tech" aria-selected="false">
+                                <button class="nav-link" id="tech-tab-<?php echo $k ?>" data-bs-toggle="tab" data-bs-target="#tech-<?php echo $k ?>" type="button" role="tab" aria-controls="tech-<?php echo $k ?>" aria-selected="false">
                                     <?php echo $onepress_features_tab3_title; ?>
                                 </button>
                             <?php
@@ -129,15 +129,15 @@ if (!$disable && !empty($data)) {
                                     </div>
                                 </div>
                                 <div class="feature-inner-content col-12 col-md-8">
-                                    <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+                                    <div class="tab-content" id="myTabContent-<?php echo $k ?>">
+                                        <div class="tab-pane fade show active" id="info-<?php echo $k ?>" role="tabpanel" aria-labelledby="info-tab-<?php echo $k ?>">
                                             <p class="subtitle h5 mb-2"><?php echo esc_html($f['subtitle']); ?></p>
                                             <?php echo apply_filters('the_content', $f['desc']); ?>
                                         </div>
                                         <?php
                                         if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
                                         ?>
-                                            <div class="tab-pane fade" id="certification" role="tabpanel" aria-labelledby="certification-tab">
+                                            <div class="tab-pane fade" id="certification-<?php echo $k ?>" role="tabpanel" aria-labelledby="certification-tab-<?php echo $k ?>">
                                                 <ul class="push">
                                                     <?php
                                                     for ($i = 1; $i <= 10; $i++) {
@@ -164,7 +164,7 @@ if (!$disable && !empty($data)) {
                                         <?php
                                         if (($f['tech_link1'] && $f['tech_link1__text']) || ($f['tech_link2'] && $f['tech_link2__text']) || ($f['tech_link3'] && $f['tech_link3__text']) || ($f['tech_link4'] && $f['tech_link4__text']) || ($f['tech_link5'] && $f['tech_link5__text']) || ($f['tech_link6'] && $f['tech_link6__text']) || ($f['tech_link7'] && $f['tech_link7__text']) || ($f['tech_link8'] && $f['tech_link8__text']) || ($f['tech_link9'] && $f['tech_link9__text']) || ($f['tech_link10'] && $f['tech_link10__text'])) {
                                         ?>
-                                            <div class="tab-pane fade" id="tech" role="tabpanel" aria-labelledby="tech-tab">
+                                            <div class="tab-pane fade" id="tech-<?php echo $k ?>" role="tabpanel" aria-labelledby="tech-tab-<?php echo $k ?>">
                                                 <ul class="push">
                                                     <?php
                                                     for ($i = 1; $i <= 10; $i++) {
