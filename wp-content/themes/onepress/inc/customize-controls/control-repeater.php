@@ -220,7 +220,6 @@ class Onepress_Customize_Repeatable_Control extends WP_Customize_Control
                                         <# field=data[i]; #>
                                             <# if ( ! field.type ) continue; #>
                                                 <# if ( field.type ){ #>
-
                                                     <# if ( ! _.isEmpty( field.required ) ) { #>
                                                         <div data-field-id="{{ field.id }}" class="field--item conditionize item item-{{ field.type }} item-{{ field.id }}" data-cond="{{ JSON.stringify( field.required ) }}">
                                                             <# } else { #>
@@ -244,97 +243,101 @@ class Onepress_Customize_Repeatable_Control extends WP_Customize_Control
                                                                                                             <input data-live-id="{{ field.id }}" type="text" value="{{ field.value }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="">
                                                                                                             <# } else if ( field.type==='hr' ) { #>
                                                                                                                 <hr />
-                                                                                                                <# } else if ( field.type==='checkbox' ) { #>
-                                                                                                                    <# if ( field.title ) { #>
-                                                                                                                        <label class="checkbox-label">
-                                                                                                                            <input data-live-id="{{ field.id }}" type="checkbox" <# if ( field.value ) { #> checked="checked" <# } #> value="1" data-repeat-name="_items[__i__][{{ field.id }}]" class="">
-                                                                                                                                {{ field.title }}</label>
-                                                                                                                        <# } #>
-
-                                                                                                                            <# if ( field.desc ) { #>
-                                                                                                                                <p class="field-desc description">{{ field.desc }}</p>
+                                                                                                                <# } else if ( field.type==='subheader' ) { #>
+                                                                                                                    <span class="customize-control-title" style="font-size: 1.5em">{{ field.label }}</span>
+                                                                                                                    <# } else if ( field.type==='hr-bold' ) { #>
+                                                                                                                        <hr style="border-color:#000000" />
+                                                                                                                        <# } else if ( field.type==='checkbox' ) { #>
+                                                                                                                            <# if ( field.title ) { #>
+                                                                                                                                <label class="checkbox-label">
+                                                                                                                                    <input data-live-id="{{ field.id }}" type="checkbox" <# if ( field.value ) { #> checked="checked" <# } #> value="1" data-repeat-name="_items[__i__][{{ field.id }}]" class="">
+                                                                                                                                        {{ field.title }}</label>
                                                                                                                                 <# } #>
 
+                                                                                                                                    <# if ( field.desc ) { #>
+                                                                                                                                        <p class="field-desc description">{{ field.desc }}</p>
+                                                                                                                                        <# } #>
 
-                                                                                                                                    <# } else if ( field.type==='select' ) { #>
 
-                                                                                                                                        <# if ( field.multiple ) { #>
-                                                                                                                                            <select data-live-id="{{ field.id }}" class="select-multiple" multiple="multiple" data-repeat-name="_items[__i__][{{ field.id }}][]">
-                                                                                                                                                <# } else { #>
-                                                                                                                                                    <select data-live-id="{{ field.id }}" class="select-one" data-repeat-name="_items[__i__][{{ field.id }}]">
-                                                                                                                                                        <# } #>
+                                                                                                                                            <# } else if ( field.type==='select' ) { #>
 
-                                                                                                                                                            <# for ( k in field.options ) { #>
-                                                                                                                                                                <# if ( _.isArray( field.value ) ) { #>
-                                                                                                                                                                    <option <# if ( _.contains( field.value , k ) ) { #> selected="selected" <# } #> value="{{ k }}">{{ field.options[k] }}</option>
-                                                                                                                                                                    <# } else { #>
-                                                                                                                                                                        <option <# if ( field.value==k ) { #> selected="selected" <# } #> value="{{ k }}">{{ field.options[k] }}</option>
+                                                                                                                                                <# if ( field.multiple ) { #>
+                                                                                                                                                    <select data-live-id="{{ field.id }}" class="select-multiple" multiple="multiple" data-repeat-name="_items[__i__][{{ field.id }}][]">
+                                                                                                                                                        <# } else { #>
+                                                                                                                                                            <select data-live-id="{{ field.id }}" class="select-one" data-repeat-name="_items[__i__][{{ field.id }}]">
+                                                                                                                                                                <# } #>
+
+                                                                                                                                                                    <# for ( k in field.options ) { #>
+                                                                                                                                                                        <# if ( _.isArray( field.value ) ) { #>
+                                                                                                                                                                            <option <# if ( _.contains( field.value , k ) ) { #> selected="selected" <# } #> value="{{ k }}">{{ field.options[k] }}</option>
+                                                                                                                                                                            <# } else { #>
+                                                                                                                                                                                <option <# if ( field.value==k ) { #> selected="selected" <# } #> value="{{ k }}">{{ field.options[k] }}</option>
+                                                                                                                                                                                <# } #>
+                                                                                                                                                                                    <# } #>
+
+                                                                                                                                                            </select>
+
+                                                                                                                                                            <# } else if ( field.type==='radio' ) { #>
+
+                                                                                                                                                                <# for ( k in field.options ) { #>
+
+                                                                                                                                                                    <# if ( field.options.hasOwnProperty( k ) ) { #>
+
+                                                                                                                                                                        <label>
+                                                                                                                                                                            <input data-live-id="{{ field.id }}" type="radio" <# if ( field.value==k ) { #> checked="checked" <# } #> value="{{ k }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="widefat">
+                                                                                                                                                                                {{ field.options[k] }}
+                                                                                                                                                                        </label>
+
                                                                                                                                                                         <# } #>
                                                                                                                                                                             <# } #>
 
-                                                                                                                                                    </select>
+                                                                                                                                                                                <# } else if ( field.type=='color' || field.type=='coloralpha' ) { #>
 
-                                                                                                                                                    <# } else if ( field.type==='radio' ) { #>
+                                                                                                                                                                                    <# if ( field.value !='' ) { field.value='#' +field.value ; } #>
 
-                                                                                                                                                        <# for ( k in field.options ) { #>
+                                                                                                                                                                                        <input data-live-id="{{ field.id }}" data-show-opacity="true" type="text" value="{{ field.value }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="color-field c-{{ field.type }} alpha-color-control">
 
-                                                                                                                                                            <# if ( field.options.hasOwnProperty( k ) ) { #>
+                                                                                                                                                                                        <# } else if ( field.type=='media' ) { #>
 
-                                                                                                                                                                <label>
-                                                                                                                                                                    <input data-live-id="{{ field.id }}" type="radio" <# if ( field.value==k ) { #> checked="checked" <# } #> value="{{ k }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="widefat">
-                                                                                                                                                                        {{ field.options[k] }}
-                                                                                                                                                                </label>
+                                                                                                                                                                                            <# if ( !field.media || field.media=='' || field.media=='image' ) { #>
+                                                                                                                                                                                                <input type="hidden" value="{{ field.value.url }}" data-repeat-name="_items[__i__][{{ field.id }}][url]" class="image_url widefat">
+                                                                                                                                                                                                <# } else { #>
+                                                                                                                                                                                                    <input type="text" value="{{ field.value.url }}" data-repeat-name="_items[__i__][{{ field.id }}][url]" class="image_url widefat">
+                                                                                                                                                                                                    <# } #>
+                                                                                                                                                                                                        <input type="hidden" data-live-id="{{ field.id }}" value="{{ field.value.id }}" data-repeat-name="_items[__i__][{{ field.id }}][id]" class="image_id widefat">
 
-                                                                                                                                                                <# } #>
-                                                                                                                                                                    <# } #>
-
-                                                                                                                                                                        <# } else if ( field.type=='color' || field.type=='coloralpha' ) { #>
-
-                                                                                                                                                                            <# if ( field.value !='' ) { field.value='#' +field.value ; } #>
-
-                                                                                                                                                                                <input data-live-id="{{ field.id }}" data-show-opacity="true" type="text" value="{{ field.value }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="color-field c-{{ field.type }} alpha-color-control">
-
-                                                                                                                                                                                <# } else if ( field.type=='media' ) { #>
-
-                                                                                                                                                                                    <# if ( !field.media || field.media=='' || field.media=='image' ) { #>
-                                                                                                                                                                                        <input type="hidden" value="{{ field.value.url }}" data-repeat-name="_items[__i__][{{ field.id }}][url]" class="image_url widefat">
-                                                                                                                                                                                        <# } else { #>
-                                                                                                                                                                                            <input type="text" value="{{ field.value.url }}" data-repeat-name="_items[__i__][{{ field.id }}][url]" class="image_url widefat">
-                                                                                                                                                                                            <# } #>
-                                                                                                                                                                                                <input type="hidden" data-live-id="{{ field.id }}" value="{{ field.value.id }}" data-repeat-name="_items[__i__][{{ field.id }}][id]" class="image_id widefat">
-
-                                                                                                                                                                                                <# if ( !field.media || field.media=='' || field.media=='image' ) { #>
-                                                                                                                                                                                                    <div class="current <# if ( field.value.url !== '' ){ #> show <# } #>">
-                                                                                                                                                                                                        <div class="container">
-                                                                                                                                                                                                            <div class="attachment-media-view attachment-media-view-image landscape">
-                                                                                                                                                                                                                <div class="thumbnail thumbnail-image">
-                                                                                                                                                                                                                    <# if ( field.value.url !=='' ){ #>
-                                                                                                                                                                                                                        <img src="{{ field.value.url }}" alt="">
-                                                                                                                                                                                                                        <# } #>
+                                                                                                                                                                                                        <# if ( !field.media || field.media=='' || field.media=='image' ) { #>
+                                                                                                                                                                                                            <div class="current <# if ( field.value.url !== '' ){ #> show <# } #>">
+                                                                                                                                                                                                                <div class="container">
+                                                                                                                                                                                                                    <div class="attachment-media-view attachment-media-view-image landscape">
+                                                                                                                                                                                                                        <div class="thumbnail thumbnail-image">
+                                                                                                                                                                                                                            <# if ( field.value.url !=='' ){ #>
+                                                                                                                                                                                                                                <img src="{{ field.value.url }}" alt="">
+                                                                                                                                                                                                                                <# } #>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                    </div>
                                                                                                                                                                                                                 </div>
                                                                                                                                                                                                             </div>
-                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                    <# } #>
+                                                                                                                                                                                                            <# } #>
 
-                                                                                                                                                                                                        <div class="actions">
-                                                                                                                                                                                                            <button class="button remove-button " <# if ( ! field.value.url ){ #> style="display:none"; <# } #> type="button"><?php _e('Remove', 'onepress') ?></button>
-                                                                                                                                                                                                            <button class="button upload-button" data-media="{{field.media}}" data-add-txt="<?php esc_attr_e('Add', 'onepress'); ?>" data-change-txt="<?php esc_attr_e('Change', 'onepress'); ?>" type="button">
-                                                                                                                                                                                                                <# if ( ! field.value.url ){ #> <?php _e('Add', 'onepress'); ?> <# } else { #> <?php _e('Change', 'onepress'); ?> <# } #>
-                                                                                                                                                                                                            </button>
-                                                                                                                                                                                                            <div style="clear:both"></div>
-                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                <div class="actions">
+                                                                                                                                                                                                                    <button class="button remove-button " <# if ( ! field.value.url ){ #> style="display:none"; <# } #> type="button"><?php _e('Remove', 'onepress') ?></button>
+                                                                                                                                                                                                                    <button class="button upload-button" data-media="{{field.media}}" data-add-txt="<?php esc_attr_e('Add', 'onepress'); ?>" data-change-txt="<?php esc_attr_e('Change', 'onepress'); ?>" type="button">
+                                                                                                                                                                                                                        <# if ( ! field.value.url ){ #> <?php _e('Add', 'onepress'); ?> <# } else { #> <?php _e('Change', 'onepress'); ?> <# } #>
+                                                                                                                                                                                                                    </button>
+                                                                                                                                                                                                                    <div style="clear:both"></div>
+                                                                                                                                                                                                                </div>
 
-                                                                                                                                                                                                        <# } else if ( field.type=='textarea' || field.type=='editor' ) { #>
-                                                                                                                                                                                                            <textarea data-live-id="{{{ field.id }}}" data-repeat-name="_items[__i__][{{ field.id }}]">{{ field.value }}</textarea>
-                                                                                                                                                                                                            <# } else if ( field.type=='icon' ) { #>
-                                                                                                                                                                                                                <# var icon_class=field.value; if ( icon_class.indexOf( 'fa-' ) !=0 ) { icon_class='fa-' + field.value; } else { icon_class=icon_class.replace( 'fa ' , '' ); } icon_class=icon_class.replace( 'fa-fa' , '' ); #>
-                                                                                                                                                                                                                    <div class="icon-wrapper">
-                                                                                                                                                                                                                        <i class="fa {{ icon_class }}"></i>
-                                                                                                                                                                                                                        <input data-live-id="{{ field.id }}" type="hidden" value="{{ field.value }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="">
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                    <a href="#" class="remove-icon"><?php esc_html_e('Remove', 'onepress'); ?></a>
-                                                                                                                                                                                                                    <# } #>
+                                                                                                                                                                                                                <# } else if ( field.type=='textarea' || field.type=='editor' ) { #>
+                                                                                                                                                                                                                    <textarea data-live-id="{{{ field.id }}}" data-repeat-name="_items[__i__][{{ field.id }}]">{{ field.value }}</textarea>
+                                                                                                                                                                                                                    <# } else if ( field.type=='icon' ) { #>
+                                                                                                                                                                                                                        <# var icon_class=field.value; if ( icon_class.indexOf( 'fa-' ) !=0 ) { icon_class='fa-' + field.value; } else { icon_class=icon_class.replace( 'fa ' , '' ); } icon_class=icon_class.replace( 'fa-fa' , '' ); #>
+                                                                                                                                                                                                                            <div class="icon-wrapper">
+                                                                                                                                                                                                                                <i class="fa {{ icon_class }}"></i>
+                                                                                                                                                                                                                                <input data-live-id="{{ field.id }}" type="hidden" value="{{ field.value }}" data-repeat-name="_items[__i__][{{ field.id }}]" class="">
+                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                            <a href="#" class="remove-icon"><?php esc_html_e('Remove', 'onepress'); ?></a>
+                                                                                                                                                                                                                            <# } #>
 
                                                                 </div>
 

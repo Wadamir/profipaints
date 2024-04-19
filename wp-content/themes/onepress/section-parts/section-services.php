@@ -1,6 +1,8 @@
 <?php
 $id       = get_theme_mod( 'onepress_services_id', esc_html__('services', 'onepress') );
 $disable  = get_theme_mod( 'onepress_services_disable' ) == 1 ? true : false;
+$meta_class = get_theme_mod('onepress_services_meta') == 1 ? 'onepress-meta' : '';
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-services section-padding onepage-section {$meta_class}", 'services'));
 $title    = get_theme_mod( 'onepress_services_title', esc_html__('Our Services', 'onepress' ));
 $subtitle = get_theme_mod( 'onepress_services_subtitle', esc_html__('Section subtitle', 'onepress' ));
 // Get data
@@ -15,7 +17,8 @@ if ( onepress_is_selective_refresh() ) {
     ?>
     <?php if (!$disable) : ?>
         <?php if ( ! onepress_is_selective_refresh() ){ ?>
-        <section id="<?php if ($id != '') { echo esc_attr( $id ); } ?>" <?php do_action('onepress_section_atts', 'services'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-services section-padding section-meta onepage-section', 'services')); ?>"><?php } ?>
+            <section id="<?php echo ($id !== '') ? esc_attr($id) : 'services'; ?>" <?php do_action('onepress_section_atts', 'services'); ?> class="<?php echo $section_classes; ?>">
+        <?php } ?>
             <?php do_action('onepress_section_before_inner', 'services'); ?>
             <div class="<?php echo esc_attr( apply_filters( 'onepress_section_container_class', 'container', 'services' ) ); ?>">
                 <?php if ( $title ||  $subtitle || $desc ){ ?>

@@ -684,6 +684,7 @@ if (!function_exists('onepress_custom_inline_style')) {
              * Theme Color
              */
             $primary = sanitize_hex_color_no_hash(get_theme_mod('onepress_primary_color'));
+            /*
             if ($primary != '') { ?>
                 a, .screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus, .header-social a, .onepress-menu a:hover,
                 .onepress-menu ul li a:hover, .onepress-menu li.onepress-current-item > a, .onepress-menu ul li.current-menu-item > a, .onepress-menu > li a.menu-actived,
@@ -725,6 +726,7 @@ if (!function_exists('onepress_custom_inline_style')) {
                     }
                 <?php }
             } // End $primary
+            */
 
             /**
              * Theme Secondary Color
@@ -732,9 +734,53 @@ if (!function_exists('onepress_custom_inline_style')) {
              * @since 2.2.1
              */
             $secondary_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_secondary_color'));
-            if ('' != $secondary_color) {
-                echo ".feature-item:hover .icon-background-default{ color: #{$secondary_color}; }";
+            // if ('' != $secondary_color) {
+            //     echo ".feature-item:hover .icon-background-default{ color: #{$secondary_color}; }";
+            // }
+
+            /**
+             * Theme colors
+             */
+            $onepress_primary_text_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_primary_text_color'));
+            $onepress_secondary_text_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_secondary_text_color'));
+            $onepress_accent_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_accent_color'));
+            $onepress_secondary_accent_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_secondary_accent_color'));
+            $onepress_background_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_background_color'));
+            $onepress_background_meta_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_background_meta_color'));
+
+            if ('' != $onepress_primary_text_color || '' != $onepress_secondary_text_color || '' != $onepress_accent_color || '' != $onepress_secondary_accent_color || '' != $onepress_background_color || '' != $onepress_background_meta_color) {
+                echo ':root {';
             }
+
+            if ('' != $onepress_primary_text_color) {
+                echo "--primary-text-color: #{$onepress_primary_text_color};";
+            }
+            if ('' != $onepress_secondary_text_color) {
+                echo "--secondary-text-color: #{$onepress_secondary_text_color};";
+            }
+            if ('' != $onepress_accent_color) {
+                echo "--accent-color: #{$onepress_accent_color};";
+                $r = hexdec(substr($onepress_accent_color, 0, 2));
+                $g = hexdec(substr($onepress_accent_color, 2, 2));
+                $b = hexdec(substr($onepress_accent_color, 4, 2));
+                echo "--accent-transparent-color: rgba({$r},{$g},{$b},.85);";
+                echo "--accent-transparent2-color: rgba({$r},{$g},{$b},.5);";
+            }
+            if ('' != $onepress_secondary_accent_color) {
+                echo "--accent-secondary-color: #{$onepress_secondary_accent_color};";
+            }
+            if ('' != $onepress_background_color) {
+                echo "--background-color: #{$onepress_background_color};";
+            }
+            if ('' != $onepress_background_meta_color) {
+                echo "--background-meta-color: #{$onepress_background_meta_color};";
+            }
+
+            if ('' != $onepress_primary_text_color || '' != $onepress_secondary_text_color || '' != $onepress_accent_color || '' != $onepress_secondary_accent_color || '' != $onepress_background_color || '' != $onepress_background_meta_color) {
+                echo '}';
+            }
+
+
             $menu_padding = get_theme_mod('onepress_menu_item_padding');
             if ($menu_padding) {
                 $menu_padding = absint($menu_padding);
@@ -777,7 +823,7 @@ if (!function_exists('onepress_custom_inline_style')) {
              */
             $header_bg_color = sanitize_hex_color_no_hash(get_theme_mod('onepress_header_bg_color'));
             if ($header_bg_color) {
-                ?>
+            ?>
                 .site-header, .is-transparent .site-header.header-fixed {
                 background: #<?php echo $header_bg_color; ?>;
                 border-bottom: 0px none;
@@ -1164,7 +1210,7 @@ if (!function_exists('onepress_custom_inline_style')) {
 
             return $page_ids;
         }
-    }    
+    }
 
     if (!function_exists('onepress_get_section_counter_data')) {
         /**
@@ -1310,6 +1356,41 @@ if (!function_exists('onepress_custom_inline_style')) {
             return $array;
         }
     }
+    if (!function_exists('onepress_get_modules_data')) {
+        /**
+         * Get modules data
+         *
+         * @since 1.1.4
+         * @return array
+         */
+        function onepress_get_modules_data()
+        {
+            $array = get_theme_mod('onepress_modules_boxes');
+            if (is_string($array)) {
+                $array = json_decode($array, true);
+            }
+            if (!empty($array) && is_array($array)) {
+                foreach ($array as $k => $v) {
+                    $array[$k] = wp_parse_args(
+                        $v,
+                        array(
+                            'icon' => 'gg',
+                            'title' => '',
+                            'desc' => '',
+                            'link' => '',
+                        )
+                    );
+
+                    // Get/Set social icons
+                    $array[$k]['icon'] = trim($array[$k]['icon']);
+                    if ($array[$k]['icon'] != '' && strpos($array[$k]['icon'], 'fa') !== 0) {
+                        $array[$k]['icon'] = 'fa-' . $array[$k]['icon'];
+                    }
+                }
+            }
+            return $array;
+        }
+    }
     if (!function_exists('onepress_get_about2_data')) {
         /**
          * Get about2 data
@@ -1379,7 +1460,7 @@ if (!function_exists('onepress_custom_inline_style')) {
             }
             return $array;
         }
-    }    
+    }
     if (!function_exists('onepress_get_social_profiles')) {
         /**
          * Get social profiles

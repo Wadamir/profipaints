@@ -1,6 +1,8 @@
 <?php
 $id        = get_theme_mod('onepress_news_id', esc_html__('news', 'onepress'));
 $disable   = get_theme_mod('onepress_news_disable') == 1 ? true : false;
+$meta_class = get_theme_mod('onepress_news_meta') == 1 ? 'onepress-meta' : '';
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-news section-padding onepage-section {$meta_class}", 'news'));
 
 if (onepress_is_selective_refresh()) {
     $disable = false;
@@ -18,9 +20,7 @@ if (!$disable) :
 
 ?>
     <?php if (!onepress_is_selective_refresh()) { ?>
-        <section id="<?php if ($id != '') {
-                            echo esc_attr($id);
-                        } ?>" <?php do_action('onepress_section_atts', 'news'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-news section-meta section-padding onepage-section', 'news')); ?>">
+        <section id="<?php echo ($id !== '') ? esc_attr($id) : 'news'; ?>" <?php do_action('onepress_section_atts', 'news'); ?> class="<?php echo $section_classes; ?>">
         <?php } ?>
         <?php do_action('onepress_section_before_inner', 'news'); ?>
         <div class="<?php echo esc_attr(apply_filters('onepress_section_container_class', 'container', 'news')); ?>">

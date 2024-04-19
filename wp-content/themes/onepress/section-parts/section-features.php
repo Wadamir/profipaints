@@ -1,6 +1,8 @@
 <?php
 $id       = get_theme_mod('onepress_features_id', esc_html__('features', 'onepress'));
 $disable  = get_theme_mod('onepress_features_disable') == 1 ? true : false;
+$meta_class = get_theme_mod('onepress_features_meta') == 1 ? 'onepress-meta' : '';
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-features section-padding onepage-section {$meta_class}", 'features'));
 $title    = get_theme_mod('onepress_features_title', esc_html__('Features', 'onepress'));
 $subtitle = get_theme_mod('onepress_features_subtitle', esc_html__('Why choose Us', 'onepress'));
 $layout = intval(get_theme_mod('onepress_features_layout', 4));
@@ -14,9 +16,7 @@ if (!$disable && !empty($data)) {
     $desc = get_theme_mod('onepress_features_desc');
 ?>
     <?php if (!onepress_is_selective_refresh()) { ?>
-        <section id="<?php if ($id != '') {
-                            echo esc_attr($id);
-                        } ?>" <?php do_action('onepress_section_atts', 'features'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-features section-padding onepage-section', 'features')); ?>">
+        <section id="<?php echo ($id !== '') ? esc_attr($id) : 'features'; ?>" <?php do_action('onepress_section_atts', 'features'); ?> class="<?php echo $section_classes; ?>">
         <?php } ?>
         <?php do_action('onepress_section_before_inner', 'features'); ?>
         <div class="<?php echo esc_attr(apply_filters('onepress_section_container_class', 'container', 'features')); ?>">

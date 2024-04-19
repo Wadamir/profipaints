@@ -142,6 +142,25 @@ function onepress_customizer_partials($wp_customize)
             ),
         ),
 
+        // section form
+        array(
+            'id' => 'form',
+            'selector' => '.section-form',
+            'settings' => array(
+                'onepress_form_title',
+                'onepress_form_subtitle',
+                'onepress_form_desc',
+                'onepress_form_cf7',
+                'onepress_form_cf7_disable',
+                'onepress_form_text',
+                'onepress_form_address_title',
+                'onepress_form_address',
+                'onepress_form_phone',
+                'onepress_form_email',
+                'onepress_form_fax',
+            ),
+        ),
+
         // section contact
         array(
             'id' => 'contact',
@@ -193,6 +212,20 @@ function onepress_customizer_partials($wp_customize)
                 'onepress_about_desc',
                 'onepress_about_content_source',
                 'onepress_about_layout',
+            ),
+        ),
+
+        // Section options
+        array(
+            'id' => 'options',
+            'selector' => '.section-options',
+            'settings' => array(
+                'onepress_options_boxes',
+                'onepress_options_title',
+                'onepress_options_subtitle',
+                'onepress_options_desc',
+                'onepress_options_content_source',
+                'onepress_options_layout',
             ),
         ),
 

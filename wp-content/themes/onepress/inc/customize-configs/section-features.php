@@ -37,7 +37,25 @@ $wp_customize->add_control(
         'type'        => 'checkbox',
         'label'       => esc_html__('Hide this section?', 'onepress'),
         'section'     => 'onepress_features_settings',
-        'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+        // 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+    )
+);
+
+// Meta Color Content
+$wp_customize->add_setting(
+    'onepress_features_meta',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_checkbox',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_features_meta',
+    array(
+        'type'        => 'checkbox',
+        'label'       => esc_html__('Темный цвет?', 'onepress'),
+        'section'     => 'onepress_features_settings',
+        // 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
     )
 );
 
@@ -134,6 +152,56 @@ $wp_customize->add_control(
     )
 );
 
+// Tab 1 title
+$wp_customize->add_setting(
+    'onepress_features_tab1_title',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => esc_html__('Информация о товаре', 'onepress'),
+    )
+);
+$wp_customize->add_control(
+    'onepress_features_tab1_title',
+    array(
+        'label'         => esc_html__('Информация о товаре', 'onepress'),
+        'section'         => 'onepress_features_settings',
+        'description'   => '',
+    )
+);
+
+// Tab 2 title
+$wp_customize->add_setting(
+    'onepress_features_tab2_title',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => esc_html__('Сертификаты', 'onepress'),
+    )
+);
+$wp_customize->add_control(
+    'onepress_features_tab2_title',
+    array(
+        'label'         => esc_html__('Сертификаты', 'onepress'),
+        'section'         => 'onepress_features_settings',
+        'description'   => '',
+    )
+);
+
+// Tab 3 title
+$wp_customize->add_setting(
+    'onepress_features_tab3_title',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => esc_html__('Техничка', 'onepress'),
+    )
+);
+$wp_customize->add_control(
+    'onepress_features_tab3_title',
+    array(
+        'label'         => esc_html__('Техничка', 'onepress'),
+        'section'         => 'onepress_features_settings',
+        'description'   => '',
+    )
+);
 
 // onepress_add_upsell_for_section( $wp_customize, 'onepress_features_settings' );
 
@@ -213,13 +281,21 @@ $wp_customize->add_control(
                 ),
                 // hr
                 'divider' => array(
+                    'type'    => 'hr-bold'
+                ),
+                'certificates_title'  => array(
+                    'label' => esc_html__('Сертификаты', 'onepress'),
+                    'type'  => 'subheader',
+                ),
+                // hr
+                'divider1' => array(
                     'type'    => 'hr'
                 ),
-                'link'  => array(
+                'link1'  => array(
                     'title' => esc_html__('Ссылка на сертификат', 'onepress'),
                     'type'  => 'text',
                 ),
-                'link__text'  => array(
+                'link1__text'  => array(
                     'title' => esc_html__('Текст ссылки', 'onepress'),
                     'type'  => 'text',
                 ),
@@ -331,31 +407,139 @@ $wp_customize->add_control(
                     'title' => esc_html__('Текст ссылки', 'onepress'),
                     'type'  => 'text',
                 ),
+
+                // Technical docs
+
+                // hr
+                'tech_divider' => array(
+                    'type'    => 'hr-bold'
+                ),
+                'tech_title'  => array(
+                    'label' => esc_html__('Техничка', 'onepress'),
+                    'type'  => 'subheader',
+                ),
+                // hr
+                'tech_divider1' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link1'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link1__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider2' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link2'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link2__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider3' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link3'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link3__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider4' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link4'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link4__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider5' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link5'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link5__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider6' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link6'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link6__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider7' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link7'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link7__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider8' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link8'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link8__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider9' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link9'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link9__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
+                // hr
+                'tech_divider10' => array(
+                    'type'    => 'hr'
+                ),
+                'tech_link10'  => array(
+                    'title' => esc_html__('Ссылка на тех. сертификат', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'tech_link10__text'  => array(
+                    'title' => esc_html__('Текст ссылки', 'onepress'),
+                    'type'  => 'text',
+                ),
             ),
 
         )
     )
 );
-
-/*
-// About content source
-$wp_customize->add_setting( 'onepress_about_content_source',
-	array(
-		'sanitize_callback' => 'sanitize_text_field',
-		'default'           => 'content',
-	)
-);
-
-$wp_customize->add_control( 'onepress_about_content_source',
-	array(
-		'label' 		=> esc_html__('Item content source', 'onepress'),
-		'section' 		=> 'onepress_about_content',
-		'description'   => '',
-		'type'          => 'select',
-		'choices'       => array(
-			'content' => esc_html__( 'Full Page Content', 'onepress' ),
-			'excerpt' => esc_html__( 'Page Excerpt', 'onepress' ),
-		),
-	)
-);
-*/

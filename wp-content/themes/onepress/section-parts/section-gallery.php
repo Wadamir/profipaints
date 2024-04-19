@@ -1,6 +1,8 @@
 <?php
-$id       = get_theme_mod('onepress_gallery_id', esc_html__('gallery', 'onepress'));
-$disable  = get_theme_mod('onepress_gallery_disable', 1) ==  1 ? true : false;
+$id                 = get_theme_mod('onepress_gallery_id', esc_html__('gallery', 'onepress'));
+$disable            = get_theme_mod('onepress_gallery_disable', 1) ==  1 ? true : false;
+$meta_class         = get_theme_mod('onepress_gallery_meta') == 1 ? 'onepress-meta' : '';
+$section_classes    = esc_attr(apply_filters('onepress_section_class', "section-gallery section-padding onepage-section {$meta_class}", 'gallery'));
 $title    = get_theme_mod('onepress_gallery_title', esc_html__('Gallery', 'onepress'));
 $subtitle = get_theme_mod('onepress_gallery_subtitle', esc_html__('Section subtitle', 'onepress'));
 $desc     = get_theme_mod('onepress_gallery_desc');
@@ -13,7 +15,7 @@ $layout = get_theme_mod('onepress_gallery_layout', 'default');
 ?>
 <?php if (!$disable) { ?>
     <?php if (!onepress_is_selective_refresh()) { ?>
-        <section id="<?php echo esc_attr($id); ?>" <?php do_action('onepress_section_atts', 'gallery'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-gallery section-meta ' . (($title || $subtitle || $desc) ? 'section-padding' : '') . ' onepage-section', 'gallery')); ?>">
+        <section id="<?php echo ($id !== '') ? esc_attr($id) : 'gallery'; ?>" <?php do_action('onepress_section_atts', 'gallery'); ?> class="<?php echo $section_classes; ?>">
         <?php } ?>
         <?php do_action('onepress_section_before_inner', 'gallery'); ?>
 

@@ -3,8 +3,9 @@ $id       = get_theme_mod('onepress_features_id', esc_html__('features', 'onepre
 $disable  = get_theme_mod('onepress_features_disable') == 1 ? true : false;
 $title    = get_theme_mod('onepress_features_title', esc_html__('Features', 'onepress'));
 $subtitle = get_theme_mod('onepress_features_subtitle', esc_html__('Why choose Us', 'onepress'));
-$layout = intval(get_theme_mod('onepress_features_layout', 4));
-$layout_col = 12 / $layout;
+$onepress_features_tab1_title = get_theme_mod('onepress_features_tab1_title', esc_html__('Информация о товаре', 'onepress'));
+$onepress_features_tab2_title = get_theme_mod('onepress_features_tab2_title', esc_html__('Сертификаты', 'onepress'));
+$onepress_features_tab3_title = get_theme_mod('onepress_features_tab3_title', esc_html__('Техничка', 'onepress'));
 if (onepress_is_selective_refresh()) {
     $disable = false;
 }
@@ -71,6 +72,8 @@ if (!$disable && !empty($data)) {
                 $media3 = '';
             }
         }
+
+        $show_nav_tabs_class = (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text']) || ($f['tech_link1'] && $f['tech_link1__text']) || ($f['tech_link2'] && $f['tech_link2__text']) || ($f['tech_link3'] && $f['tech_link3__text']) || ($f['tech_link4'] && $f['tech_link4__text']) || ($f['tech_link5'] && $f['tech_link5__text']) || ($f['tech_link6'] && $f['tech_link6__text']) || ($f['tech_link7'] && $f['tech_link7__text']) || ($f['tech_link8'] && $f['tech_link8__text']) || ($f['tech_link9'] && $f['tech_link9__text']) || ($f['tech_link10'] && $f['tech_link10__text'])) ? '' : ' d-none';
     ?>
         <div class="modal fade" id="feature-item-content-<?php echo $k ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-wide">
@@ -93,16 +96,29 @@ if (!$disable && !empty($data)) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php
-                        if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
-                        ?>
-                            <nav class="nav nav-pills flex-column flex-sm-row">
-                                <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">Информация о товаре</button>
-                                <button class="nav-link" id="certification-tab" data-bs-toggle="tab" data-bs-target="#certification" type="button" role="tab" aria-controls="certification" aria-selected="false">Сертификаты и документация</button>
-                            </nav>
-                        <?php
-                        }
-                        ?>
+                        <nav class="nav nav-pills flex-column flex-sm-row<?php echo $show_nav_tabs_class ?>">
+                            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
+                                <?php echo $onepress_features_tab1_title; ?>
+                            </button>
+                            <?php
+                            if (($f['link1'] && $f['link1__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
+                            ?>
+                                <button class="nav-link" id="certification-tab" data-bs-toggle="tab" data-bs-target="#certification" type="button" role="tab" aria-controls="certification" aria-selected="false">
+                                    <?php echo $onepress_features_tab2_title; ?>
+                                </button>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            if (($f['tech_link1'] && $f['tech_link1__text']) || ($f['tech_link2'] && $f['tech_link2__text']) || ($f['tech_link3'] && $f['tech_link3__text']) || ($f['tech_link4'] && $f['tech_link4__text']) || ($f['tech_link5'] && $f['tech_link5__text']) || ($f['tech_link6'] && $f['tech_link6__text']) || ($f['tech_link7'] && $f['tech_link7__text']) || ($f['tech_link8'] && $f['tech_link8__text']) || ($f['tech_link9'] && $f['tech_link9__text']) || ($f['tech_link10'] && $f['tech_link10__text'])) {
+                            ?>
+                                <button class="nav-link" id="tech-tab" data-bs-toggle="tab" data-bs-target="#tech" type="button" role="tab" aria-controls="tech" aria-selected="false">
+                                    <?php echo $onepress_features_tab3_title; ?>
+                                </button>
+                            <?php
+                            }
+                            ?>
+                        </nav>
                         <div class="feature-item meta-color">
                             <div class="row">
                                 <div class="feature-media col-12 col-md-4">
@@ -113,34 +129,22 @@ if (!$disable && !empty($data)) {
                                     </div>
                                 </div>
                                 <div class="feature-inner-content col-12 col-md-8">
-                                    <?php
-                                    if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
-                                    ?>
-                                        <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-                                            <?php
-                                        }
-                                            ?>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
                                             <p class="subtitle h5 mb-2"><?php echo esc_html($f['subtitle']); ?></p>
                                             <?php echo apply_filters('the_content', $f['desc']); ?>
-                                            <?php
-                                            if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
-                                            ?>
-                                            </div>
+                                        </div>
+                                        <?php
+                                        if (($f['link'] && $f['link__text']) || ($f['link2'] && $f['link2__text']) || ($f['link3'] && $f['link3__text']) || ($f['link4'] && $f['link4__text']) || ($f['link5'] && $f['link5__text']) || ($f['link6'] && $f['link6__text']) || ($f['link7'] && $f['link7__text']) || ($f['link8'] && $f['link8__text']) || ($f['link9'] && $f['link9__text']) || ($f['link10'] && $f['link10__text'])) {
+                                        ?>
                                             <div class="tab-pane fade" id="certification" role="tabpanel" aria-labelledby="certification-tab">
                                                 <ul class="push">
                                                     <?php
-                                                    $counter = 0;
-                                                    for ($i = 0; $i <= 10; $i++) {
-                                                        if ($i == 0) {
-                                                            $link = 'link';
-                                                            $link_text = 'link__text';
-                                                        } else {
-                                                            $link = 'link' . $i;
-                                                            $link_text = 'link' . $i . '__text';
-                                                            if (empty($f[$link]) || empty($f[$link_text])) {
-                                                                continue;
-                                                            }
+                                                    for ($i = 1; $i <= 10; $i++) {
+                                                        $link = 'link' . $i;
+                                                        $link_text = 'link' . $i . '__text';
+                                                        if (empty($f[$link]) || empty($f[$link_text])) {
+                                                            continue;
                                                         }
                                                         if (empty($f[$link]) || empty($f[$link_text])) {
                                                             continue;
@@ -154,10 +158,37 @@ if (!$disable && !empty($data)) {
                                                     ?>
                                                 </ul>
                                             </div>
-                                        </div>
-                                    <?php
-                                            }
-                                    ?>
+                                        <?php
+                                        }
+                                        ?>
+                                        <?php
+                                        if (($f['tech_link1'] && $f['tech_link1__text']) || ($f['tech_link2'] && $f['tech_link2__text']) || ($f['tech_link3'] && $f['tech_link3__text']) || ($f['tech_link4'] && $f['tech_link4__text']) || ($f['tech_link5'] && $f['tech_link5__text']) || ($f['tech_link6'] && $f['tech_link6__text']) || ($f['tech_link7'] && $f['tech_link7__text']) || ($f['tech_link8'] && $f['tech_link8__text']) || ($f['tech_link9'] && $f['tech_link9__text']) || ($f['tech_link10'] && $f['tech_link10__text'])) {
+                                        ?>
+                                            <div class="tab-pane fade" id="tech" role="tabpanel" aria-labelledby="tech-tab">
+                                                <ul class="push">
+                                                    <?php
+                                                    for ($i = 1; $i <= 10; $i++) {
+                                                        $link = 'tech_link' . $i;
+                                                        $link_text = 'tech_link' . $i . '__text';
+                                                        if (empty($f[$link]) || empty($f[$link_text])) {
+                                                            continue;
+                                                        }
+                                                        if (empty($f[$link]) || empty($f[$link_text])) {
+                                                            continue;
+                                                        }
+                                                    ?>
+                                                        <li>
+                                                            <a href=" <?php echo esc_url($f[$link]); ?>" target="_blank"><?php echo esc_html($f[$link_text]); ?></a>
+                                                        </li>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

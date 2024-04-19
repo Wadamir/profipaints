@@ -7,7 +7,7 @@ $wp_customize->add_panel(
     'onepress_about',
     array(
         'priority'        => 150,
-        'title'           => esc_html__('Раздел: Доставка и оплата', 'onepress'),
+        'title'           => esc_html__('Раздел: Юрики & Физики', 'onepress'),
         'description'     => '',
         'active_callback' => 'onepress_showon_frontpage'
     )
@@ -37,7 +37,25 @@ $wp_customize->add_control(
         'type'        => 'checkbox',
         'label'       => esc_html__('Hide this section?', 'onepress'),
         'section'     => 'onepress_about_settings',
-        'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+        // 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+    )
+);
+
+// Meta Color Content
+$wp_customize->add_setting(
+    'onepress_about_meta',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_checkbox',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_about_meta',
+    array(
+        'type'        => 'checkbox',
+        'label'       => esc_html__('Темный цвет?', 'onepress'),
+        'section'     => 'onepress_about_settings',
+        // 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
     )
 );
 
@@ -122,13 +140,12 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     'onepress_about_layout',
     array(
-        'label'         => esc_html__('About 2 Layout Setting', 'onepress'),
+        'label'         => esc_html__('Layout Setting', 'onepress'),
         'section'         => 'onepress_about_settings',
         'description'   => '',
         'type'          => 'select',
         'choices'       => array(
             '3' => esc_html__('4 Columns', 'onepress'),
-            '4' => esc_html__('3 Columns', 'onepress'),
             '6' => esc_html__('2 Columns', 'onepress'),
         ),
     )
@@ -183,9 +200,18 @@ $wp_customize->add_control(
                     'title' => esc_html__('Фото', 'onepress'),
                     'type'  => 'media',
                 ),
+                'divider'  => array(
+                    // 'title' => esc_html__('Разделитель', 'onepress'),
+                    'type'  => 'hr-bold',
+                ),
                 'desc'  => array(
-                    'title' => esc_html__('Description', 'onepress'),
+                    'title' => esc_html__('Текст в pop-up', 'onepress'),
                     'type'  => 'editor',
+                ),
+                'form'  => array(
+                    'title' => esc_html__('Форма', 'onepress'),
+                    'type'  => 'text',
+                    'description' => 'Шорткод формы',
                 ),
             ),
 

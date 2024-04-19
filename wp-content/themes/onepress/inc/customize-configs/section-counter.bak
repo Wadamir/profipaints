@@ -31,7 +31,7 @@ $wp_customize->add_control( 'onepress_counter_disable',
 		'type'        => 'checkbox',
 		'label'       => esc_html__('Hide this section?', 'onepress'),
 		'section'     => 'onepress_counter_settings',
-		'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+		// 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
 	)
 );
 

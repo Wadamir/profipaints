@@ -73,6 +73,7 @@ do_action('onepress_site_end');
 <?php wp_footer(); ?>
 
 <?php onepress_load_section('features-footer'); ?>
+<?php onepress_load_section('about-footer'); ?>
 
 </body>
 

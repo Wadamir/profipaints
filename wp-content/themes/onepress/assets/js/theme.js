@@ -206,7 +206,7 @@ jQuery(document).ready(function ($) {
                     }
                 }
                 $thisSticky.parent().removeAttr("style");
-                $thisSticky.parent().height($thisSticky.height());
+                // $thisSticky.parent().height($thisSticky.height());
             });
         };
 

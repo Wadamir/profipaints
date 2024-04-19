@@ -107,7 +107,7 @@ class Onepress_Config
     {
 
         $sorted_sections = apply_filters('onepress_frontpage_sections_order', array(
-            'aboutus', 'features', 'about2', 'about', 'videolightbox', 'gallery', 'counter', 'team',  'news', 'contact'
+            'aboutus', 'features', 'about2', 'modules', 'about', 'videolightbox', 'gallery', 'counter', 'team',  'news', 'form', 'contact'
         ));
 
         $sections_config = array(
@@ -123,6 +123,12 @@ class Onepress_Config
                 'default' => false,
                 'inverse' => false,
             ),
+            'modules' => array(
+                'label' => __('Section: Modules', 'onepress'),
+                'title' => __('Modules', 'onepress'),
+                'default' => false,
+                'inverse' => false,
+            ),
             'about2' => array(
                 'label' => __('Section: About2', 'onepress'),
                 'title' => __('About Us', 'onepress'),
@@ -135,12 +141,17 @@ class Onepress_Config
                 'default' => false,
                 'inverse' => false,
             ),
+            'form' => array(
+                'label' =>  __('Раздел: Форма', 'onepress'),
+                'title' => __('Get in touch', 'onepress'),
+                'default' => false,
+                'inverse' => false,
+            ),
             'contact' => array(
                 'label' =>  __('Section: Contact', 'onepress'),
                 'title' => __('Get in touch', 'onepress'),
                 'default' => false,
                 'inverse' => false,
-
             ),
             'counter' => array(
                 'label' => __('Section: Counter', 'onepress'),

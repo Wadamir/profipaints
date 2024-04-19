@@ -1,6 +1,8 @@
 <?php
 $id       = get_theme_mod('onepress_about_id', esc_html__('about', 'onepress'));
 $disable  = get_theme_mod('onepress_about_disable') == 1 ? true : false;
+$meta_class = get_theme_mod('onepress_about_meta') == 1 ? 'onepress-meta' : '';
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-about section-padding onepage-section {$meta_class}", 'about'));
 $title    = get_theme_mod('onepress_about_title', esc_html__('about', 'onepress'));
 $subtitle = get_theme_mod('onepress_about_subtitle', esc_html__('Why choose Us', 'onepress'));
 $layout = intval(get_theme_mod('onepress_about_layout', 4));
@@ -12,9 +14,7 @@ if (!$disable && !empty($data)) {
     $desc = get_theme_mod('onepress_about_desc');
 ?>
     <?php if (!onepress_is_selective_refresh()) { ?>
-        <section id="<?php if ($id != '') {
-                            echo esc_attr($id);
-                        } ?>" <?php do_action('onepress_section_atts', 'about'); ?> class="<?php echo esc_attr(apply_filters('onepress_section_class', 'section-about section-padding onepage-section', 'about')); ?>">
+        <section id="<?php echo ($id !== '') ? esc_attr($id) : 'about'; ?>" <?php do_action('onepress_section_atts', 'about'); ?> class="<?php echo $section_classes; ?>">
         <?php } ?>
         <?php do_action('onepress_section_before_inner', 'about'); ?>
         <div class="<?php echo esc_attr(apply_filters('onepress_section_container_class', 'container', 'about')); ?>">
@@ -50,7 +50,7 @@ if (!$disable && !empty($data)) {
                         }
                     ?>
                         <div class="col-12 col-md-<?php echo $layout ?> d-flex align-items-stretch">
-                            <div class="about-item meta-color h-100">
+                            <div class="about-item meta-color h-100" data-bs-toggle="modal" data-bs-target="#about-item-content-<?php echo $k ?>">
                                 <div class="about-content">
                                     <h2><?php echo esc_html($f['title']); ?></h2>
                                     <p class="subtitle text-italic h4"><?php echo esc_html($f['subtitle']); ?></p>
@@ -63,7 +63,6 @@ if (!$disable && !empty($data)) {
                         </div>
                     <?php
                     } // end loop about
-
                     ?>
                 </div>
             </div>

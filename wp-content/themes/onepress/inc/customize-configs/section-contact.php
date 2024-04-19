@@ -37,7 +37,25 @@ $wp_customize->add_control(
         'type'        => 'checkbox',
         'label'       => esc_html__('Hide this section?', 'onepress'),
         'section'     => 'onepress_contact_settings',
-        'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+        // 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
+    )
+);
+
+// Meta Color Content
+$wp_customize->add_setting(
+    'onepress_contact_meta',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_checkbox',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    'onepress_contact_meta',
+    array(
+        'type'        => 'checkbox',
+        'label'       => esc_html__('Темный цвет?', 'onepress'),
+        'section'     => 'onepress_contact_settings',
+        // 'description' => esc_html__('Check this box to hide this section.', 'onepress'),
     )
 );
 
