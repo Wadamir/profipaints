@@ -3215,7 +3215,7 @@ section>.customize-partial-edit-shortcut button {
 
 .hero-content-style1 p {
     font-size: 12px;
-    font-style: italic;
+    /* font-style: italic; */
     letter-spacing: 0.4px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     color: var(--background-color, #FCFCFC);
