@@ -2406,6 +2406,7 @@ Footer widgets
 .btn:active,
 .btn:focus {
     outline: none;
+    box-shadow: none;
 }
 
 .btn-lg {
@@ -2448,6 +2449,38 @@ Footer widgets
 .btn.btn-secondary-outline:hover {
     background: var(--background-color, #FCFCFC);
     color: var(--primary-text-color, #1B1D21);
+}
+
+.btn.btn-primary {
+    background: var(--accent-color, #03c4eb);
+    color: var(--background-color, #FCFCFC);
+    border: 1px solid var(--accent-color, #03c4eb);
+    border-radius: var(--primary-border-radius, 12px);
+    width: 100%;
+    max-width: 300px;
+    text-decoration: none;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--accent-secondary-color, #05969A);
+    color: var(--background-color, #FCFCFC);
+    box-shadow: 0 6px 9px var(--primary-box-shadow-color, rgba(0, 0, 0, 0.09));
+    text-decoration: none;
+}
+
+.btn.btn-secondary {
+    background: transparent;
+    color: var(--accent-color, #03c4eb);
+    border: 1px solid var(--accent-color, #03c4eb);
+    border-radius: var(--primary-border-radius, 12px);
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--accent-color, #03c4eb);
+    color: var(--background-color, #FCFCFC);
+    box-shadow: 0 6px 9px var(--primary-box-shadow-color, rgba(0, 0, 0, 0.09));
 }
 
 /* Loading
@@ -3152,7 +3185,7 @@ section>.customize-partial-edit-shortcut button {
 
 .hero-content-style1 h2 {
     color: var(--background-color, #FCFCFC);
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 0px;
     line-height: 1.1;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -3504,6 +3537,7 @@ section>.customize-partial-edit-shortcut button {
 
 .section-about .section-title-area {
     margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 .section-about .row>div {

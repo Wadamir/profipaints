@@ -40,6 +40,8 @@ if (!$disable && !empty($data)) {
                             'title' => '',
                             'subtitle' => '',
                             'desc' => '',
+                            'btn_text' => '',
+                            'btn_type' => 'btn-primary',
                         ));
                         if ($f['image']) {
                             $url = onepress_get_media_url($f['image']);
@@ -50,11 +52,22 @@ if (!$disable && !empty($data)) {
                         }
                     ?>
                         <div class="col-12 col-md-<?php echo $layout ?> d-flex align-items-stretch">
-                            <div class="about-item meta-color h-100" data-bs-toggle="modal" data-bs-target="#about-item-content-<?php echo $k ?>">
+                            <div class="about-item meta-color w-100 h-100">
                                 <div class="about-content">
-                                    <h2><?php echo esc_html($f['title']); ?></h2>
-                                    <p class="subtitle text-italic h4"><?php echo esc_html($f['subtitle']); ?></p>
-                                    <div class="about-item-content"><?php echo apply_filters('the_content', $f['desc']); ?></div>
+                                    <?php if ($f['title'] !== '') : ?>
+                                        <h2><?php echo esc_html($f['title']); ?></h2>
+                                    <?php endif; ?>
+                                    <?php if ($f['subtitle'] !== '') : ?>
+                                        <p class="text-center h4"><?php echo esc_html($f['subtitle']); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($f['desc'] !== '' && $f['desc'] !== '<p></p>') : ?>
+                                        <div class="about-item-content"><?php echo apply_filters('the_content', $f['desc']); ?></div>
+                                    <?php endif; ?>
+                                    <?php if ($f['btn_text'] !== '') : ?>
+                                        <p class="text-center">
+                                            <a href="#" class="btn btn-lg <?php echo esc_attr($f['btn_type']); ?>" data-bs-toggle="modal" data-bs-target="#about-item-content-<?php echo $k ?>"><?php echo esc_html($f['btn_text']); ?></a>
+                                        </p>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="about-media">
                                     <?php echo $media; ?>

@@ -204,6 +204,18 @@ $wp_customize->add_control(
                     'title' => esc_html__('Описание', 'onepress'),
                     'type'  => 'editor',
                 ),
+                'btn_text'  => array(
+                    'title' => esc_html__('Текст на кнопке', 'onepress'),
+                    'type'  => 'text',
+                ),
+                'btn_type'    => array(
+                    'title'   => esc_html__('Тип кнопки', 'onepress'),
+                    'type'    => 'select',
+                    'options' => array(
+                        'btn-primary' => esc_html__('Primary', 'onepress'),
+                        'btn-secondary' => esc_html__('Secondary', 'onepress'),
+                    ),
+                ),
                 'divider'  => array(
                     // 'title' => esc_html__('Разделитель', 'onepress'),
                     'type'  => 'hr-bold',

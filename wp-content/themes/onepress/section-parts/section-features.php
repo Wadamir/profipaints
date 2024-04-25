@@ -64,7 +64,7 @@ if (!$disable && !empty($data)) {
                             }
                         }
                     ?>
-                        <div class="col-6 col-md-6 col-lg-<?php echo $layout ?> d-flex align-items-stretch">
+                        <div class="col-12 col-md-6 col-lg-<?php echo $layout ?> d-flex align-items-stretch">
                             <div class="feature-item meta-color h-100" data-bs-toggle="modal" data-bs-target="#feature-item-content-<?php echo $k ?>">
                                 <h3><?php echo esc_html($f['title']); ?></h3>
                                 <div class="feature-media">
