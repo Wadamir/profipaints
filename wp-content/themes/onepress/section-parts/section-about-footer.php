@@ -28,6 +28,15 @@ if (!$disable && !empty($data)) {
                 'desc_footer' => '',
                 'form' => '',
             ));
+            if ($f['title'] !== '') {
+                $f['title'] = apply_filters('the_title', $f['title']);
+            }
+            if ($f['subtitle'] !== '') {
+                $f['subtitle'] = apply_filters('the_title', $f['subtitle']);
+            }
+            if ($f['desc'] !== '') {
+                $f['desc'] = apply_filters('the_content', $f['desc']);
+            }
             if ($f['image']) {
                 $url = onepress_get_media_url($f['image']);
                 $image_alt = get_post_meta($f['image']['id'], '_wp_attachment_image_alt', true);
@@ -35,12 +44,24 @@ if (!$disable && !empty($data)) {
                     $media = '<span class="icon-image"><img src="' . esc_url($url) . '" alt="' . $image_alt . '"></span>';
                 }
             }
+            $modal_title = esc_html($f['title']);
+            if ($modal_title == '') {
+                $modal_title = esc_html($f['subtitle']);
+            }
+            if ($modal_title == '') {
+                $strlen = strlen($f['desc']);
+                if ($strlen > 20) {
+                    $modal_title = substr($f['desc'], 0, 20) . '...';
+                } else {
+                    $modal_title = esc_html($f['desc']);
+                }
+            }
         ?>
             <div class="modal fade" id="about-item-content-<?php echo $k ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-wide">
                     <div class="modal-content modal-content-high">
                         <div class="modal-header">
-                            <h3><?php echo esc_html($f['title']); ?></h3>
+                            <h3 class="text-uppercase"><?php echo $modal_title; ?></h3>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
