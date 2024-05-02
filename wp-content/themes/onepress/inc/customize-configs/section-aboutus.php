@@ -128,35 +128,55 @@ $wp_customize->add_control(new OnePress_Editor_Custom_Control(
     )
 ));
 
-// aboutus layout
+// Image
 $wp_customize->add_setting(
-    'onepress_aboutus_layout',
+    'onepress_aboutus_image',
     array(
-        'sanitize_callback' => 'sanitize_text_field',
-        'default'           => '3',
+        'sanitize_callback' => 'esc_url',
+        'default'           => '',
+    )
+);
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'onepress_aboutus_image',
+        array(
+            'label'       => esc_html__('Section Image', 'onepress'),
+            'section'     => 'onepress_aboutus_settings',
+            'description' => '',
+        )
     )
 );
 
-$wp_customize->add_control(
-    'onepress_aboutus_layout',
-    array(
-        'label'         => esc_html__('About company Layout Setting', 'onepress'),
-        'section'         => 'onepress_aboutus_settings',
-        'description'   => '',
-        'type'          => 'select',
-        'choices'       => array(
-            '12' => esc_html__('1 Columns', 'onepress'),
-            '3' => esc_html__('4 Columns', 'onepress'),
-            '4' => esc_html__('3 Columns', 'onepress'),
-            '6' => esc_html__('2 Columns', 'onepress'),
-        ),
-    )
-);
+// aboutus layout
+// $wp_customize->add_setting(
+//     'onepress_aboutus_layout',
+//     array(
+//         'sanitize_callback' => 'sanitize_text_field',
+//         'default'           => '3',
+//     )
+// );
+
+// $wp_customize->add_control(
+//     'onepress_aboutus_layout',
+//     array(
+//         'label'         => esc_html__('About company Layout Setting', 'onepress'),
+//         'section'         => 'onepress_aboutus_settings',
+//         'description'   => '',
+//         'type'          => 'select',
+//         'choices'       => array(
+//             '12' => esc_html__('1 Columns', 'onepress'),
+//             '3' => esc_html__('4 Columns', 'onepress'),
+//             '4' => esc_html__('3 Columns', 'onepress'),
+//             '6' => esc_html__('2 Columns', 'onepress'),
+//         ),
+//     )
+// );
 
 
 // onepress_add_upsell_for_section( $wp_customize, 'onepress_aboutus_settings' );
 
-
+/*
 $wp_customize->add_section(
     'onepress_aboutus_content',
     array(

@@ -53,12 +53,8 @@ if (!$disable && !empty($data)) {
                         <div class="col-12 col-md-6 col-lg-<?php echo $layout ?> d-flex align-items-stretch">
                             <div class="about2-item meta-color h-100">
                                 <div class="about2-content">
-                                    <h3><?php echo esc_html($f['title']); ?></h3>
-                                    <p class="subtitle"><?php echo esc_html($f['subtitle']); ?></p>
+                                    <div class="about2-media text-center"><?php echo $media; ?></div>
                                     <div class="about2-item-content"><?php echo apply_filters('the_content', $f['desc']); ?></div>
-                                </div>
-                                <div class="about2-media">
-                                    <?php echo $media; ?>
                                 </div>
                             </div>
                         </div>

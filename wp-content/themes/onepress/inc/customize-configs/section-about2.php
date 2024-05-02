@@ -181,7 +181,7 @@ $wp_customize->add_control(
         $wp_customize,
         'onepress_about2_boxes',
         array(
-            'label'         => esc_html__('Content', 'onepress'),
+            'label'         => esc_html__('Элемент', 'onepress'),
             'description'   => '',
             'section'       => 'onepress_about2_content',
             'live_title_id' => 'title', // apply for unput text and textarea only
@@ -189,16 +189,8 @@ $wp_customize->add_control(
             'max_item'      => 124, // Maximum item can add
             'limited_msg'     => wp_kses_post(__('Upgrade to <a target="_blank" href="https://www.famethemes.com/plugins/onepress-plus/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=onepress_customizer#get-started">OnePress Plus</a> to be able to add more items and unlock other premium about2!', 'onepress')),
             'fields'    => array(
-                'title'  => array(
-                    'title' => esc_html__('Title', 'onepress'),
-                    'type'  => 'text',
-                ),
-                'subtitle'  => array(
-                    'title' => esc_html__('Subtitle', 'onepress'),
-                    'type'  => 'text',
-                ),
                 'image'  => array(
-                    'title' => esc_html__('Фото', 'onepress'),
+                    'title' => esc_html__('Иконка', 'onepress'),
                     'type'  => 'media',
                 ),
                 'desc'  => array(
@@ -210,26 +202,3 @@ $wp_customize->add_control(
         )
     )
 );
-
-/*
-// About content source
-$wp_customize->add_setting( 'onepress_about_content_source',
-	array(
-		'sanitize_callback' => 'sanitize_text_field',
-		'default'           => 'content',
-	)
-);
-
-$wp_customize->add_control( 'onepress_about_content_source',
-	array(
-		'label' 		=> esc_html__('Item content source', 'onepress'),
-		'section' 		=> 'onepress_about_content',
-		'description'   => '',
-		'type'          => 'select',
-		'choices'       => array(
-			'content' => esc_html__( 'Full Page Content', 'onepress' ),
-			'excerpt' => esc_html__( 'Page Excerpt', 'onepress' ),
-		),
-	)
-);
-*/
