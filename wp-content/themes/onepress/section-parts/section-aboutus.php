@@ -18,8 +18,8 @@ $layout = intval(get_theme_mod('onepress_aboutus_layout', 12));
 if (onepress_is_selective_refresh()) {
     $disable = false;
 }
-$data  = onepress_get_aboutus_data();
-if (!$disable && !empty($data)) {
+// $data  = onepress_get_aboutus_data();
+if (!$disable) {
     $desc = get_theme_mod('onepress_aboutus_desc');
 ?>
     <?php if (!onepress_is_selective_refresh()) { ?>

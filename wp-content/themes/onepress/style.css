@@ -3716,6 +3716,46 @@ Section: Aboutus
     content: "";
 }
 
+/* Section: Buy
+------------------------------*/
+.buy-item {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* align-content: space-between;
+    justify-content: space-between;
+    align-items: center; */
+}
+
+.buy-item>.buy-bg {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+.buy-item>.buy-bg>svg {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.buy-item>.buy-bg-half {
+    margin-bottom: 6px;
+}
+
+.buy-item>.buy-bg-half:last-child {
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.h-45 {
+    height: 45%;
+}
+
 /* Section: Counter
 ------------------------------*/
 .counter_item {
