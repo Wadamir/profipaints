@@ -50,7 +50,7 @@ if (!$disable && !empty($data)) {
                             }
                         }
                     ?>
-                        <div class="col-12 col-md-6 col-lg-<?php echo $layout ?> d-flex align-items-stretch">
+                        <div class="col-12 col-md-6 col-lg-<?php echo $layout ?> mb-10">
                             <div class="about2-item meta-color h-100">
                                 <div class="about2-content">
                                     <div class="about2-media text-center"><?php echo $media; ?></div>

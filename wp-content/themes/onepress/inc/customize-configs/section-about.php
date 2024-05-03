@@ -7,7 +7,7 @@ $wp_customize->add_panel(
     'onepress_about',
     array(
         'priority'        => 150,
-        'title'           => esc_html__('Раздел: Юрики & Физики', 'onepress'),
+        'title'           => esc_html__('Раздел: Для корп. клиентов', 'onepress'),
         'description'     => '',
         'active_callback' => 'onepress_showon_frontpage'
     )
@@ -93,22 +93,22 @@ $wp_customize->add_control(
     )
 );
 
-// Sub Title
-$wp_customize->add_setting(
-    'onepress_about_subtitle',
-    array(
-        'sanitize_callback' => 'sanitize_text_field',
-        'default'           => esc_html__('Section subtitle', 'onepress'),
-    )
-);
-$wp_customize->add_control(
-    'onepress_about_subtitle',
-    array(
-        'label'         => esc_html__('Section Subtitle', 'onepress'),
-        'section'         => 'onepress_about_settings',
-        'description'   => '',
-    )
-);
+// // Sub Title
+// $wp_customize->add_setting(
+//     'onepress_about_subtitle',
+//     array(
+//         'sanitize_callback' => 'sanitize_text_field',
+//         'default'           => esc_html__('Section subtitle', 'onepress'),
+//     )
+// );
+// $wp_customize->add_control(
+//     'onepress_about_subtitle',
+//     array(
+//         'label'         => esc_html__('Section Subtitle', 'onepress'),
+//         'section'         => 'onepress_about_settings',
+//         'description'   => '',
+//     )
+// );
 
 // Description
 $wp_customize->add_setting(
@@ -128,132 +128,39 @@ $wp_customize->add_control(new OnePress_Editor_Custom_Control(
     )
 ));
 
-// about layout
+// Image
 $wp_customize->add_setting(
-    'onepress_about_layout',
+    'onepress_about_image',
     array(
-        'sanitize_callback' => 'sanitize_text_field',
-        'default'           => '3',
+        'sanitize_callback' => 'esc_url',
+        'default'           => '',
     )
 );
-
 $wp_customize->add_control(
-    'onepress_about_layout',
-    array(
-        'label'         => esc_html__('Layout Setting', 'onepress'),
-        'section'         => 'onepress_about_settings',
-        'description'   => '',
-        'type'          => 'select',
-        'choices'       => array(
-            '3' => esc_html__('4 Columns', 'onepress'),
-            '6' => esc_html__('2 Columns', 'onepress'),
-        ),
-    )
-);
-
-
-// onepress_add_upsell_for_section( $wp_customize, 'onepress_about_settings' );
-
-
-$wp_customize->add_section(
-    'onepress_about_content',
-    array(
-        'priority'    => 6,
-        'title'       => esc_html__('Section Content', 'onepress'),
-        'description' => '',
-        'panel'       => 'onepress_about',
-    )
-);
-
-// about content
-$wp_customize->add_setting(
-    'onepress_about_boxes',
-    array(
-        //'default' => '',
-        'sanitize_callback' => 'onepress_sanitize_repeatable_data_field',
-        'transport' => 'refresh', // refresh or postMessage
-    )
-);
-
-$wp_customize->add_control(
-    new Onepress_Customize_Repeatable_Control(
+    new WP_Customize_Image_Control(
         $wp_customize,
-        'onepress_about_boxes',
+        'onepress_about_image',
         array(
-            'label'         => esc_html__('Content', 'onepress'),
-            'description'   => '',
-            'section'       => 'onepress_about_content',
-            'live_title_id' => 'title', // apply for unput text and textarea only
-            'title_format'  => esc_html__('[live_title]', 'onepress'), // [live_title]
-            'max_item'      => 124, // Maximum item can add
-            'limited_msg'     => wp_kses_post(__('Upgrade to <a target="_blank" href="https://www.famethemes.com/plugins/onepress-plus/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=onepress_customizer#get-started">OnePress Plus</a> to be able to add more items and unlock other premium about!', 'onepress')),
-            'fields'    => array(
-                'title'  => array(
-                    'title' => esc_html__('Title', 'onepress'),
-                    'type'  => 'text',
-                ),
-                'subtitle'  => array(
-                    'title' => esc_html__('Subtitle', 'onepress'),
-                    'type'  => 'text',
-                ),
-                'image'  => array(
-                    'title' => esc_html__('Фото', 'onepress'),
-                    'type'  => 'media',
-                ),
-                'desc'  => array(
-                    'title' => esc_html__('Описание', 'onepress'),
-                    'type'  => 'editor',
-                ),
-                'btn_text'  => array(
-                    'title' => esc_html__('Текст на кнопке', 'onepress'),
-                    'type'  => 'text',
-                ),
-                'btn_type'    => array(
-                    'title'   => esc_html__('Тип кнопки', 'onepress'),
-                    'type'    => 'select',
-                    'options' => array(
-                        'btn-primary' => esc_html__('Primary', 'onepress'),
-                        'btn-secondary' => esc_html__('Secondary', 'onepress'),
-                    ),
-                ),
-                'divider'  => array(
-                    // 'title' => esc_html__('Разделитель', 'onepress'),
-                    'type'  => 'hr-bold',
-                ),
-                'desc_footer'  => array(
-                    'title' => esc_html__('Текст в pop-up окне', 'onepress'),
-                    'type'  => 'editor',
-                ),
-                'form'  => array(
-                    'title' => esc_html__('Форма', 'onepress'),
-                    'type'  => 'text',
-                    'description' => 'Шорткод формы',
-                ),
-            ),
-
+            'label'       => esc_html__('Section Image', 'onepress'),
+            'section'     => 'onepress_about_settings',
+            'description' => '',
         )
     )
 );
 
-/*
-// About content source
-$wp_customize->add_setting( 'onepress_about_content_source',
-	array(
-		'sanitize_callback' => 'sanitize_text_field',
-		'default'           => 'content',
-	)
+// Form cf7
+$wp_customize->add_setting(
+    'onepress_about_form',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => '',
+    )
 );
-
-$wp_customize->add_control( 'onepress_about_content_source',
-	array(
-		'label' 		=> esc_html__('Item content source', 'onepress'),
-		'section' 		=> 'onepress_about_content',
-		'description'   => '',
-		'type'          => 'select',
-		'choices'       => array(
-			'content' => esc_html__( 'Full Page Content', 'onepress' ),
-			'excerpt' => esc_html__( 'Page Excerpt', 'onepress' ),
-		),
-	)
+$wp_customize->add_control(
+    'onepress_about_form',
+    array(
+        'label'         => esc_html__('Форма', 'onepress'),
+        'section'         => 'onepress_about_settings',
+        'description'   => '',
+    )
 );
-*/

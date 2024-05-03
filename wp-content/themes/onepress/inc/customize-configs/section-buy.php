@@ -147,6 +147,37 @@ $wp_customize->add_control(
         )
     )
 );
+// Link 1
+$wp_customize->add_setting(
+    'onepress_buy_link1',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => esc_html__('Link 1', 'onepress'),
+    )
+);
+$wp_customize->add_control(
+    'onepress_buy_link1',
+    array(
+        'label'         => esc_html__('Link 1', 'onepress'),
+        'section'         => 'onepress_buy_settings',
+        'description'   => '',
+    )
+);
+// hr
+$wp_customize->add_setting(
+    'onepress_buy_hr1',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_text',
+    )
+);
+$wp_customize->add_control(new OnePress_Misc_Control(
+    $wp_customize,
+    'onepress_buy_hr1',
+    array(
+        'section' => 'onepress_buy_settings',
+        'type'    => 'hr'
+    )
+));
 
 // Image 2
 $wp_customize->add_setting(
@@ -167,6 +198,37 @@ $wp_customize->add_control(
         )
     )
 );
+// Link 2
+$wp_customize->add_setting(
+    'onepress_buy_link2',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => esc_html__('Link 2', 'onepress'),
+    )
+);
+$wp_customize->add_control(
+    'onepress_buy_link2',
+    array(
+        'label'         => esc_html__('Link 2', 'onepress'),
+        'section'         => 'onepress_buy_settings',
+        'description'   => '',
+    )
+);
+// hr
+$wp_customize->add_setting(
+    'onepress_buy_hr2',
+    array(
+        'sanitize_callback' => 'onepress_sanitize_text',
+    )
+);
+$wp_customize->add_control(new OnePress_Misc_Control(
+    $wp_customize,
+    'onepress_buy_hr2',
+    array(
+        'section' => 'onepress_buy_settings',
+        'type'    => 'hr'
+    )
+));
 
 // Image 3
 $wp_customize->add_setting(
@@ -185,6 +247,22 @@ $wp_customize->add_control(
             'section'     => 'onepress_buy_settings',
             'description' => '',
         )
+    )
+);
+// Link 3
+$wp_customize->add_setting(
+    'onepress_buy_link3',
+    array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default'           => esc_html__('Link 3', 'onepress'),
+    )
+);
+$wp_customize->add_control(
+    'onepress_buy_link3',
+    array(
+        'label'         => esc_html__('Link 3', 'onepress'),
+        'section'         => 'onepress_buy_settings',
+        'description'   => '',
     )
 );
 

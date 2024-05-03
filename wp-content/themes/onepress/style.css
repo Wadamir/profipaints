@@ -105,6 +105,8 @@ ROOT
     --primary-margin: 12px;
     --secondary-margin: 24px;
     --primary-width: 100%;
+    --gutter-x: 10px;
+    --gutter-y: 10px;
 }
 
 /*------------------------------
@@ -332,6 +334,21 @@ hr {
     margin-bottom: var(--primary-margin, 12px);
     margin-top: 0;
 }
+
+
+/*------------------------------
+    Grid
+------------------------------*/
+.row {
+    margin-left: calc(var(--gutter-x, 10px) * -.5);
+    margin-right: calc(var(--gutter-x, 10px) * -.5);
+}
+
+.row>* {
+    padding-left: calc(var(--gutter-x, 10px) * .5);
+    padding-right: calc(var(--gutter-x, 10px) * .5);
+}
+
 
 /*------------------------------
 	2.5 Content
@@ -820,6 +837,10 @@ pre {
 body.mce-content-body {
     margin: 20px 40px;
     font-size: 13px;
+}
+
+.mb-10 {
+    margin-bottom: var(--gutter-y, 10px);
 }
 
 /*--------------------------------------------------------------
@@ -2414,6 +2435,7 @@ Footer widgets
 .btn-lg {
     font-size: 17px;
     font-size: 1.0625rem;
+    padding: 20px 36px;
 }
 
 .btn-theme-primary {
@@ -2485,6 +2507,19 @@ Footer widgets
     color: var(--background-color, #FFFFFF);
     box-shadow: 0 6px 9px var(--primary-box-shadow-color, rgba(0, 0, 0, 0.09));
     text-decoration: none;
+}
+
+.btn.btn-text-icon {
+    position: relative;
+    padding-left: 25%;
+    text-align: left;
+}
+
+.btn.btn-text-icon>.btn-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
 }
 
 /* Loading
@@ -2693,8 +2728,8 @@ section>.customize-partial-edit-shortcut button {
 /* Section Stuffs
 ------------------------------*/
 .section-padding {
-    padding: 70px 0px;
-    padding: 4.375rem 0px;
+    padding: 35px 0px;
+    /* padding: 4.375rem 0px; */
 }
 
 .section-padding-lg {
@@ -2831,8 +2866,8 @@ section>.customize-partial-edit-shortcut button {
 .section-desc {
     font-size: 20px;
     font-size: 1.25rem;
-    margin-top: 40px;
-    margin-top: 2.5rem;
+    /* margin-top: 40px; */
+    /* margin-top: 2.5rem; */
 }
 
 /* Section: Hero
@@ -3275,9 +3310,9 @@ section>.customize-partial-edit-shortcut button {
 
 /* Section: Features
 ------------------------------*/
-.features-carousel>div {
+/* .features-carousel>div {
     margin-bottom: 1.5rem;
-}
+} */
 
 .icon-background-default {
     color: #03c4eb;
@@ -3611,6 +3646,38 @@ section>.customize-partial-edit-shortcut button {
     opacity: 0.5;
 }
 
+.about-content {
+    background-color: var(--background-color, #FFFFFF);
+    padding: 40px;
+    margin-top: 40px;
+    border-radius: var(--primary-border-radius, 25px);
+}
+
+.about-bg {
+    height: 100%;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.about-content h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.about-content ul li {
+    font-size: 20px;
+    line-height: 1.1;
+}
+
+.about-form {
+    padding-top: 50px;
+}
+
 /*
 Section: Aboutus
 ------------------------------*/
@@ -3737,18 +3804,27 @@ Section: Aboutus
     position: relative;
 }
 
+.buy-item>.buy-bg:hover {
+    box-shadow: 0 6px 9px var(--primary-box-shadow-color, rgba(0, 0, 0, 0.09));
+}
+
 .buy-item>.buy-bg>svg {
     position: absolute;
     top: 15px;
     right: 15px;
 }
 
+.buy-item>.buy-bg:hover>svg {
+    fill: var(--primary-text-color, #1B1D21);
+}
+
 .buy-item>.buy-bg-half {
-    margin-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .buy-item>.buy-bg-half:last-child {
-    margin-top: 6px;
+    margin-top: 5px;
     margin-bottom: 0;
 }
 

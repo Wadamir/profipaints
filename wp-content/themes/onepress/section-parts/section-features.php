@@ -64,7 +64,7 @@ if (!$disable && !empty($data)) {
                             }
                         }
                     ?>
-                        <div class="col-12 col-md-6 col-lg-<?php echo $layout ?> d-flex align-items-stretch">
+                        <div class="col-12 col-md-6 col-lg-<?php echo $layout ?> mb-10">
                             <div class="feature-item meta-color h-100">
                                 <h3 class="d-none"><?php echo esc_html($f['title']); ?></h3>
                                 <div class="feature-media">
@@ -72,7 +72,7 @@ if (!$disable && !empty($data)) {
                                 </div>
                                 <p class="subtitle"><?php echo esc_html($f['subtitle']); ?></p>
                                 <p class="text-center m-0 w-100">
-                                    <a href="#" class="btn btn-lg btn-primary w-100" data-bs-toggle="modal" data-bs-target="#feature-item-content-<?php echo $k ?>">
+                                    <a href="#" class="btn btn-lg btn-primary btn-text-icon w-100" data-bs-toggle="modal" data-bs-target="#feature-item-content-<?php echo $k ?>">
                                         <span class="btn-text"><?php echo esc_html__('ПОДРОБНЕЕ', 'onepress'); ?></span>
                                         <span class="btn-icon"> <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M28.9195 11.9194H15.0807L15.0807 13.8707L25.5775 13.8776L11.621 27.834L13.0049 29.2179L26.9613 15.2615L26.9683 25.7582H28.9195V11.9194Z" fill="white" />

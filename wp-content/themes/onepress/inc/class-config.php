@@ -107,7 +107,7 @@ class Onepress_Config
     {
 
         $sorted_sections = apply_filters('onepress_frontpage_sections_order', array(
-            'about2', 'aboutus', 'features', 'buy', 'modules', 'about', 'videolightbox', 'gallery', 'counter', 'team',  'news', 'form', 'contact'
+            'about2', 'aboutus', 'features', 'buy', 'about', 'modules', 'videolightbox', 'gallery', 'counter', 'team',  'news', 'form', 'contact'
         ));
 
         $sections_config = array(
