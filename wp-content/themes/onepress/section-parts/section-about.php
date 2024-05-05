@@ -2,7 +2,7 @@
 $id       = get_theme_mod('onepress_about_id', esc_html__('about', 'onepress'));
 $disable  = get_theme_mod('onepress_about_disable') == 1 ? true : false;
 $meta_class = get_theme_mod('onepress_about_meta') == 1 ? 'onepress-meta' : '';
-$section_classes = esc_attr(apply_filters('onepress_section_class', "section-about section-padding onepage-section {$meta_class}", 'about'));
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-about section-padding-lg onepage-section {$meta_class}", 'about'));
 $title    = get_theme_mod('onepress_about_title', esc_html__('about', 'onepress'));
 $subtitle = get_theme_mod('onepress_about_subtitle', esc_html__('Why choose Us', 'onepress'));
 $description = get_theme_mod('onepress_about_desc');
@@ -38,16 +38,21 @@ if (!$disable) {
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <?php if ($desc) {
-                            echo '<div class="section-desc">' . apply_filters('onepress_the_content', wp_kses_post($desc)) . '</div>';
+                            echo '<div class="about-section-desc">' . apply_filters('onepress_the_content', wp_kses_post($desc));
                         } ?>
                         <?php if ($form) { ?>
                             <div class="about-form">
                                 <a href="#" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#about-modal"><?php echo esc_html__('Оставить заявку', 'onepress'); ?></a>
                             </div>
                         <?php } ?>
+                        <?php if ($desc) {
+                            echo '</div>';
+                        } ?>
                     </div>
                     <div class="col-12 col-md-6">
-                        <div class="about-bg" <?php echo $background_image ?>></div>
+                        <div class="about-pl-60">
+                            <div class="about-bg" <?php echo $background_image ?>></div>
+                        </div>
                     </div>
                 </div>
             </div>

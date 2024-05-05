@@ -2,7 +2,7 @@
 $id       = get_theme_mod('onepress_buy_id', esc_html__('buy', 'onepress'));
 $disable  = get_theme_mod('onepress_buy_disable') == 1 ? true : false;
 $meta_class = get_theme_mod('onepress_buy_meta') == 1 ? 'onepress-meta' : '';
-$section_classes = esc_attr(apply_filters('onepress_section_class', "section-buy section-padding onepage-section {$meta_class}", 'buy'));
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-buy section-padding-lg onepage-section {$meta_class}", 'buy'));
 $title    = get_theme_mod('onepress_buy_title', esc_html__('buy', 'onepress'));
 $subtitle = get_theme_mod('onepress_buy_subtitle', esc_html__('Why choose Us', 'onepress'));
 $description = get_theme_mod('onepress_buy_desc');
@@ -46,20 +46,20 @@ if (!$disable) {
         <div class="<?php echo esc_attr(apply_filters('onepress_section_container_class', 'container', 'buy')); ?>">
             <div class="section-content">
                 <div class="row">
-                    <div class="col-12 col-md-4 d-flex">
-                        <div class="buy-item w-100 h-100">
+                    <div class="col-12 col-md-12 col-lg-4 d-flex equal-height">
+                        <div class="buy-item2">
                             <?php if ($title) { ?>
                                 <div class="section-title-area mb-3">
                                     <?php if ($title != '') echo '<h2 class="section-title text-start">' . esc_html($title) . '</h2>'; ?>
                                 </div>
                             <?php } ?>
                             <?php if ($desc) {
-                                echo '<div class="section-desc mt-2">' . apply_filters('onepress_the_content', wp_kses_post($desc)) . '</div>';
+                                echo '<div class="buy-section-desc">' . apply_filters('onepress_the_content', wp_kses_post($desc)) . '</div>';
                             } ?>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 d-flex align-items-stretch">
-                        <div class="buy-item w-100 h-100">
+                    <div class="col-12 col-md-6 col-lg-4 d-flex equal-height">
+                        <div class="buy-item">
                             <a href="<?php echo $link1 ?>" target="_blank" class="buy-bg w-100 h-100" <?php echo $background_image1 ?>>
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.5" y="0.5" width="29" height="29" rx="14.5" stroke="white" />
@@ -68,8 +68,8 @@ if (!$disable) {
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 d-flex align-items-stretch">
-                        <div class="buy-item w-100 h-100">
+                    <div class="col-12 col-md-6 col-lg-4 d-flex equal-height">
+                        <div class="buy-item">
                             <a href="<?php echo $link2 ?>" target="_blank" class="buy-bg buy-bg-half w-100 h-50" <?php echo $background_image2 ?>>
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.5" y="0.5" width="29" height="29" rx="14.5" stroke="white" />

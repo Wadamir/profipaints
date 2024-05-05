@@ -762,6 +762,18 @@ input[type="checkbox"] {
     margin-right: auto;
 }
 
+.equal-height>div {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .equal-height-md>div {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 /*------------------------------
 	3.0 Clearings
 ------------------------------*/
@@ -1660,8 +1672,9 @@ Footer widgets
 /* Content
 ------------------------------*/
 .site-content {
-    border-top: 1px solid #e9e9e9;
+    border-top: 1px solid var(--background-meta-color, #F8F9F9);
     margin-top: -1px;
+    background-color: var(--background-meta-color, #F8F9F9);
 }
 
 .site-content.no-border {
@@ -2433,9 +2446,17 @@ Footer widgets
 }
 
 .btn-lg {
-    font-size: 17px;
-    font-size: 1.0625rem;
+    font-size: 20px;
+    /* font-size: 1.0625rem; */
     padding: 20px 36px;
+}
+
+@media screen and (max-width: 1199px) {
+    .btn-lg {
+        font-size: 16px;
+        padding: 15px 30px;
+    }
+
 }
 
 .btn-theme-primary {
@@ -2520,6 +2541,22 @@ Footer widgets
     top: 50%;
     transform: translateY(-50%);
     right: 20px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 940px) {
+    .btn.btn-text-icon {
+        text-align: center;
+    }
+
+    .btn.btn-text-icon>.btn-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .btn.btn-lg.btn-text-icon {
+        padding: 10px 20px;
+    }
 }
 
 /* Loading
@@ -2725,21 +2762,25 @@ section>.customize-partial-edit-shortcut button {
 /*--------------------------------------------------------------
 8.0 Sections
 --------------------------------------------------------------*/
+#main {
+    background-color: var(--background-meta-color, #F8F9F9);
+}
+
 /* Section Stuffs
 ------------------------------*/
 .section-padding {
-    padding: 35px 0px;
+    padding: 20px 0 70px 0px;
     /* padding: 4.375rem 0px; */
 }
 
 .section-padding-lg {
-    padding: 90px 0px;
-    padding: 5.625rem 0px;
+    margin: 70px 0px;
+    /* padding: 5.625rem 0px; */
 }
 
 .section-padding-larger {
     padding: 140px 0px;
-    padding: 8.75rem 0px;
+    /* padding: 8.75rem 0px; */
 }
 
 .section-meta,
@@ -2825,7 +2866,7 @@ section>.customize-partial-edit-shortcut button {
 }
 
 .section-title-area {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -3598,7 +3639,7 @@ section>.customize-partial-edit-shortcut button {
 }
 
 .section-about .row>div {
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 /* Section: About
@@ -3653,6 +3694,12 @@ section>.customize-partial-edit-shortcut button {
     border-radius: var(--primary-border-radius, 25px);
 }
 
+.about-pl-60 {
+    padding-left: 60px;
+    height: 100%;
+    width: 100%;
+}
+
 .about-bg {
     height: 100%;
     width: 100%;
@@ -3660,6 +3707,25 @@ section>.customize-partial-edit-shortcut button {
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
+    /* margin-left: 60px; */
+}
+
+.about-section-desc {
+    padding: 0 60px;
+}
+
+@media screen and (max-width: 1199px) {
+    .about-section-desc {
+        padding: 0 20px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .about-section-desc {
+        padding: 0;
+    }
+
 }
 
 .about-content h3 {
@@ -3681,6 +3747,16 @@ section>.customize-partial-edit-shortcut button {
 /*
 Section: Aboutus
 ------------------------------*/
+.aboutus-section-desc {
+    padding: 0 60px 0 0;
+}
+
+@media screen and (max-width: 767px) {
+    .aboutus-section-desc {
+        padding: 0;
+    }
+}
+
 .aboutus-bg {
     height: 100%;
     width: 100%;
@@ -3785,6 +3861,10 @@ Section: Aboutus
 
 /* Section: Buy
 ------------------------------*/
+.buy-section-desc {
+    padding: 0 40px 0 0;
+}
+
 .buy-item {
     min-height: 350px;
     display: flex;
@@ -3802,6 +3882,7 @@ Section: Aboutus
     border-radius: 25px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 5px;
 }
 
 .buy-item>.buy-bg:hover {
@@ -3819,13 +3900,13 @@ Section: Aboutus
 }
 
 .buy-item>.buy-bg-half {
-    margin-top: 0;
+    /* margin-top: 0; */
     margin-bottom: 5px;
 }
 
 .buy-item>.buy-bg-half:last-child {
     margin-top: 5px;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
 }
 
 .h-45 {

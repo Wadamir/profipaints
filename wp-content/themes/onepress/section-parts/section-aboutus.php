@@ -37,7 +37,7 @@ if (!$disable) {
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <?php if ($desc) {
-                            echo '<div class="section-desc">' . apply_filters('onepress_the_content', wp_kses_post($desc)) . '</div>';
+                            echo '<div class="aboutus-section-desc">' . apply_filters('onepress_the_content', wp_kses_post($desc)) . '</div>';
                         } ?>
                     </div>
                     <div class="col-12 col-md-6">

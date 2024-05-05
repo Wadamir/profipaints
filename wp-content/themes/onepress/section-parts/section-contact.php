@@ -2,7 +2,7 @@
 $id                 = get_theme_mod('onepress_contact_id', esc_html__('contact', 'onepress'));
 $disable            = get_theme_mod('onepress_contact_disable') == 1 ? true : false;
 $meta_class         = get_theme_mod('onepress_contact_meta') == 1 ? 'onepress-meta' : '';
-$section_classes    = esc_attr(apply_filters('onepress_section_class', "section-contact section-padding onepage-section {$meta_class}", 'contact'));
+$section_classes    = esc_attr(apply_filters('onepress_section_class', "section-contact section-padding-lg onepage-section {$meta_class}", 'contact'));
 $title              = get_theme_mod('onepress_contact_title', esc_html__('Get in touch', 'onepress'));
 $subtitle           = get_theme_mod('onepress_contact_subtitle', esc_html__('Section subtitle', 'onepress'));
 
