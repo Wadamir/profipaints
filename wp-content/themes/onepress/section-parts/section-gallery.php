@@ -2,7 +2,7 @@
 $id                 = get_theme_mod('onepress_gallery_id', esc_html__('gallery', 'onepress'));
 $disable            = get_theme_mod('onepress_gallery_disable', 1) ==  1 ? true : false;
 $meta_class         = get_theme_mod('onepress_gallery_meta') == 1 ? 'onepress-meta' : '';
-$section_classes    = esc_attr(apply_filters('onepress_section_class', "section-gallery section-padding onepage-section {$meta_class}", 'gallery'));
+$section_classes    = esc_attr(apply_filters('onepress_section_class', "section-gallery section-padding-lg onepage-section {$meta_class}", 'gallery'));
 $title    = get_theme_mod('onepress_gallery_title', esc_html__('Gallery', 'onepress'));
 $subtitle = get_theme_mod('onepress_gallery_subtitle', esc_html__('Section subtitle', 'onepress'));
 $desc     = get_theme_mod('onepress_gallery_desc');

@@ -2,7 +2,7 @@
 $id       = get_theme_mod('onepress_about2_id', esc_html__('about2', 'onepress'));
 $disable  = get_theme_mod('onepress_about2_disable') == 1 ? true : false;
 $meta_class = get_theme_mod('onepress_about2_meta') == 1 ? 'onepress-meta' : '';
-$section_classes = esc_attr(apply_filters('onepress_section_class', "section-about2 section-padding-lg onepage-section {$meta_class}", 'about2'));
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-about2 section-margin-lg onepage-section {$meta_class}", 'about2'));
 $title    = get_theme_mod('onepress_about2_title', esc_html__('about2', 'onepress'));
 $subtitle = get_theme_mod('onepress_about2_subtitle', esc_html__('Why choose Us', 'onepress'));
 $layout = intval(get_theme_mod('onepress_about2_layout', 4));

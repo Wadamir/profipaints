@@ -2,7 +2,7 @@
 $id       = get_theme_mod('onepress_buy_id', esc_html__('buy', 'onepress'));
 $disable  = get_theme_mod('onepress_buy_disable') == 1 ? true : false;
 $meta_class = get_theme_mod('onepress_buy_meta') == 1 ? 'onepress-meta' : '';
-$section_classes = esc_attr(apply_filters('onepress_section_class', "section-buy section-padding-lg onepage-section {$meta_class}", 'buy'));
+$section_classes = esc_attr(apply_filters('onepress_section_class', "section-buy section-margin-lg onepage-section {$meta_class}", 'buy'));
 $title    = get_theme_mod('onepress_buy_title', esc_html__('buy', 'onepress'));
 $subtitle = get_theme_mod('onepress_buy_subtitle', esc_html__('Why choose Us', 'onepress'));
 $description = get_theme_mod('onepress_buy_desc');

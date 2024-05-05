@@ -2774,6 +2774,11 @@ section>.customize-partial-edit-shortcut button {
 }
 
 .section-padding-lg {
+    padding: 35px 0 70px 0px;
+    /* padding: 4.375rem 0px; */
+}
+
+.section-margin-lg {
     margin: 70px 0px;
     /* padding: 5.625rem 0px; */
 }
