@@ -21,6 +21,15 @@ $onepress_contact_telegram      = get_theme_mod('onepress_contact_telegram');
 $onepress_contact_telegram_text = (get_theme_mod('onepress_contact_telegram_text') != '') ? get_theme_mod('onepress_contact_telegram_text') : esc_html__('Telegram', 'onepress');
 
 $onepress_contact_yamap         = get_theme_mod('onepress_contact_yamap');
+// var_dump($onepress_contact_yamap);
+if (is_array($onepress_contact_yamap)) die;
+$onepress_contact_yamap_iframe  = '';
+if ($onepress_contact_yamap !== '' && strpos($onepress_contact_yamap, 'iframe') !== false) {
+    $onepress_contact_yamap_iframe = $onepress_contact_yamap;
+}
+if ($onepress_contact_yamap !== '' && strpos($onepress_contact_yamap, 'iframe') === false) {
+    $onepress_contact_yamap_iframe = '<iframe src="' . $onepress_contact_yamap . '" frameborder="0" allowfullscreen="true" width="100%" height="400px" style="display: block;"></iframe>';
+}
 $onepress_contact_yamap_disable = get_theme_mod('onepress_contact_yamap_disable');
 
 if (onepress_is_selective_refresh()) {
@@ -135,7 +144,7 @@ if ($onepress_contact_cf7 || $onepress_contact_text || $onepress_contact_address
                     <?php if ($onepress_contact_yamap && $onepress_contact_yamap_disable != '1') : ?>
                         <div class="col-sm-6 wow slideInUp">
                             <div class="contact-map">
-                                <iframe src="<?php echo $onepress_contact_yamap; ?>" frameborder="0" allowfullscreen="true" width="100%" height="400px" style="display: block;"></iframe>
+                                <?php echo $onepress_contact_yamap_iframe; ?>
                             </div>
                         </div>
                     <?php endif; ?>
