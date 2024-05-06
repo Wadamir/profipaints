@@ -3870,6 +3870,17 @@ Section: Aboutus
     padding: 0 40px 0 0;
 }
 
+.buy-item2 .section-title {
+    text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+    .buy-item2 .section-title {
+        text-align: center;
+    }
+
+}
+
 .buy-item {
     min-height: 350px;
     display: flex;
@@ -4360,6 +4371,10 @@ Section: Aboutus
 .section-contact input,
 .section-contact textarea {
     width: 100%;
+}
+
+.address-box {
+    margin-bottom: 12px;
 }
 
 .section-contact .address-contact {

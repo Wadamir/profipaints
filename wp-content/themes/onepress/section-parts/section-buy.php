@@ -50,7 +50,7 @@ if (!$disable) {
                         <div class="buy-item2">
                             <?php if ($title) { ?>
                                 <div class="section-title-area mb-3">
-                                    <?php if ($title != '') echo '<h2 class="section-title text-start">' . esc_html($title) . '</h2>'; ?>
+                                    <?php if ($title != '') echo '<h2 class="section-title">' . esc_html($title) . '</h2>'; ?>
                                 </div>
                             <?php } ?>
                             <?php if ($desc) {
