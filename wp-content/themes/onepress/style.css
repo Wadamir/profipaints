@@ -3879,6 +3879,10 @@ Section: Aboutus
         text-align: center;
     }
 
+    .buy-item2 .buy-section-desc {
+        padding: 0;
+        text-align: center;
+    }
 }
 
 .buy-item {
