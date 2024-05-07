@@ -42,7 +42,7 @@ if (!$disable) {
                         } ?>
                         <?php if ($form) { ?>
                             <div class="about-form">
-                                <a href="#" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#about-modal"><?php echo esc_html__('Оставить заявку', 'onepress'); ?></a>
+                                <a href="#" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#about-modal"><?php echo esc_html__('Связаться с нами', 'onepress'); ?></a>
                             </div>
                         <?php } ?>
                         <?php if ($desc) {
