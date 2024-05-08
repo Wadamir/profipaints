@@ -851,6 +851,24 @@ body.mce-content-body {
     font-size: 13px;
 }
 
+.p-40 {
+    padding: 40px !important;
+}
+
+.px-40 {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+.py-30 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.mt-44 {
+    margin-top: 44px;
+}
+
 .mb-10 {
     margin-bottom: var(--gutter-y, 10px);
 }
@@ -2513,6 +2531,25 @@ Footer widgets
     text-decoration: none;
 }
 
+.btn.btn-primary.btn-more {
+    width: auto;
+    padding: 10px 50px 10px 20px;
+    text-align: left;
+}
+
+.btn.btn-primary.btn-more>.btn-text {
+    font-size: 16px;
+}
+
+.btn.btn-primary.btn-more>.btn-icon {
+    top: 47%;
+}
+
+.btn.btn-primary.btn-more>.btn-icon>svg {
+    width: 20px;
+    height: 20px;
+}
+
 .btn.btn-secondary {
     background: transparent;
     color: var(--accent-color, #03c4eb);
@@ -3236,6 +3273,27 @@ section>.customize-partial-edit-shortcut button {
 .hero__content p {
     margin-bottom: 20px;
     margin-bottom: 1.25rem;
+}
+
+.hero-small-text {
+    position: absolute;
+    right: 64px;
+    bottom: 0;
+    z-index: 9;
+    border-radius: 20px 20px 0 0;
+    background: rgba(255, 255, 255, .7);
+    width: 420px;
+    max-width: 90%;
+    padding: 20px 30px;
+}
+
+@media screen and (max-width: 767px) {
+    .hero-small-text {
+        right: 50%;
+        bottom: 0;
+        transform: translate(50%, 0);
+    }
+
 }
 
 /* Hero Content Style 2. */

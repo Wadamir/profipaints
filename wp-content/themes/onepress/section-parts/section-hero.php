@@ -109,21 +109,29 @@ do_action('onepress_before_section_part', 'hero', $hook_args);
                         <?php if ($hcl1_largetext != '') {
                             echo '<h2 class="hero-large-text">' . wp_kses_post($hcl1_largetext) . '</h2>';
                         } ?>
-                        <?php if ($hcl1_smalltext != '') {
-                            echo '<p class="hero-small-text">' . apply_filters('onepress_the_content', wp_kses_post($hcl1_smalltext)) . '</p>';
-                        } ?>
-                        <?php if ($hcl1_btn1_text != '' && $hcl1_btn1_link != '') {
-                            echo '<a ' . $target_1 . ' href="' . esc_url($hcl1_btn1_link) . '" class="btn ' . esc_attr($btn_1_style) . ' btn-lg">' . wp_kses_post($hcl1_btn1_text) . '</a>';
-                        } ?>
-                        <?php if ($hcl1_btn2_text != '' && $hcl1_btn2_link != '') {
-                            echo '<a ' . $target_2 . ' href="' . esc_url($hcl1_btn2_link) . '" class="btn ' . esc_attr($btn_2_style) . ' btn-lg">' . wp_kses_post($hcl1_btn2_text) . '</a>';
-                        } ?>
                     </div>
                 </div>
         <?php
         }
-
         ?>
+        <?php if ($hcl1_smalltext != '') {
+            echo '<div class="hero-small-text">' . apply_filters('onepress_the_content', wp_kses_post($hcl1_smalltext));
+        } ?>
+        <?php if ($hcl1_btn1_text != '') {
+            echo '<p class="text-center"><a href="#" class="btn btn-md btn-primary btn-more btn-text-icon" data-bs-toggle="modal" data-bs-target="#hero-content-0">
+                        <span class="btn-text">' . wp_kses_post($hcl1_btn1_text) . '</span>
+                        <span class="btn-icon"> <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.9195 11.9194H15.0807L15.0807 13.8707L25.5775 13.8776L11.621 27.834L13.0049 29.2179L26.9613 15.2615L26.9683 25.7582H28.9195V11.9194Z" fill="white"></path>
+                            </svg>
+                        </span>
+                    </a></p>';
+        } ?>
+        <?php if ($hcl1_btn2_text != '' && $hcl1_btn2_link != '') {
+            echo '<a ' . $target_2 . ' href="' . esc_url($hcl1_btn2_link) . '" class="btn ' . esc_attr($btn_2_style) . ' btn-lg">' . wp_kses_post($hcl1_btn2_text) . '</a>';
+        } ?>
+        <?php if ($hcl1_smalltext != '') {
+            echo '</div>';
+        } ?>
     </section>
 <?php endif;
 
