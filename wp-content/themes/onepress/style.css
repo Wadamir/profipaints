@@ -3407,6 +3407,13 @@ section>.customize-partial-edit-shortcut button {
     margin-top: 35px;
 }
 
+@media screen and (max-width: 767px) {
+    .h-on-top.is-transparent #hero .container .hero__content {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
+
 /* Text Rotator */
 .morphext>.animated {
     display: inline-block;
